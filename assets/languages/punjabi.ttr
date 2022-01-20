@@ -1,0 +1,86 @@
+LNAME = 'Punjabi'		#language name
+TRANSLATOR = 'Bhavnoor Saroya'
+CONTACT_INFO = "replit.com/@noorsaroya"
+
+
+#main menu
+MAIN_TITLE = 'ਮੇਨੂ'
+START_BTN = 'ਸ਼ੁਰੂ ਕਰੋ'
+PRINT_BTN = "ਕਾਗਜ਼ 'ਤੇ ਛਾਪੋ"
+SETTINGS_BTN = 'ਸੈਟਿੰਗਾਂ'
+QUIT_BTN = 'ਪ੍ਰੋਗਰਾਮ ਨੂੰ ਬੰਦ ਕਰੋ'
+INCOMPLETE_MSG = 'ਅੱਜ ਦਾ ਕੰਮ ਅਧੂਰਾ ਹੈ'
+COMPLETE_MSG = 'ਅੱਜ ਦਾ ਕੰਮ ਪੂਰਾ ਹੋ ਗਿਆ ਹੈ'
+QUIT_TITLE = ''
+QUIT_MESSAGE = "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਪ੍ਰੋਗਰਾਮ ਨੂੰ ਬੰਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
+FILENOTFOUND_TITLE = 'ਪ੍ਰੋਗਰਾਮ ਵਿੱਚ ਇੱਕ ਮੁੱਦਾ ਹੈ'
+PRINTERROR_TITLE = 'ਪ੍ਰੋਗਰਾਮ ਵਿੱਚ ਇੱਕ ਮੁੱਦਾ ਹੈ'
+FILENOTFOUND_MESSAGE = 'ਅੱਜ ਦੀ ਫਾਈਲ ਨਹੀਂ ਮਿਲੀ'
+PRINTERROR_MESSAGE = 'ਪ੍ਰਿੰਟਿੰਗ ਵਿੱਚ ਇੱਕ ਸਮੱਸਿਆ ਸੀ'
+WINDOW_RELOAD_MSG = 'This will restart the application. Are you sure?'
+
+MENU_CREDITS = 'ਕ੍ਰੈਡਿਟ'
+VCPINC_NAME = 'ਸਾਡੀ ਕੰਪਨੀ'
+NAME_NOOR = 'Bhavnoor Saroya'
+NAME_ANTONIO = 'Antonio Guido Leoni'
+NAME_SAM = 'Sam Wiebe'
+NAME_RICK = 'Surprise!'
+ABOUT_DEVS = 'ਸਾਡੇ ਬਾਰੇ'
+ABOUT_DEVS_MSG = 'ਸਾਡੇ ਬਾਰੇ:ਲਿਖਣ ਦੇ ਸਮੇਂ ਅਸੀਂ ਗ੍ਰੇਡ 12 ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਇੱਕ ਸਮੂਹ ਹਾਂ, ਇਹ ਪ੍ਰੋਗਰਾਮ ਇੱਕ ਪ੍ਰੈਕਟੀਕਲ ਹੈ। ਸਾਡੀ ਪ੍ਰੋਗਰਾਮਿੰਗ ਕਲਾਸ ਲਈ. ਸਾਲ 2021 ਤੋਂ ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ'
+ABOUT_VCP = 'About VCP Inc.'
+ABOUT_VCPINC_MSG = 'VCP inc. stands for "Very Cool Programmers inc.", which we strive to be. All work done under the VCP inc umbrella is proprietary and confidential unless specified otherwise, re-distribution of this program without written permission from the developers is forbidden.\nAt VCP inc we strive to uphold the principles of honesty, clarity, and humor, for this reason it should be noted that no animals were directly harmed in the making of this program, the same cannot be said for the sanity of the developers.\n © 2021 VCP inc.'
+TRANSLATORS = 'Translators'
+OTHER_THANKS = "Special thanks"
+
+MENU_HELP = 'ਮਦਦ'
+HELP_GUIDE = 'User Guide'
+HELP_BUG = 'ਪ੍ਰੋਗਰਾਮ ਵਿੱਚ ਇੱਕ ਸਮੱਸਿਆ ਹੈ'
+BUGREPORT_MSG = 'Thank you for taking time out to report a bug, this program comes included with lifetime warranty, any issues you encounter should be emailed to the developers. We thank you for your patience. We hope we can have them resolved quickly. To help us fix any issues you encounter, please email to us the file called "errors.log" and delete it afterwards.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
+
+LANGUAGE_TXT = 'choose language'
+
+
+#settings
+SETTINGS_TITLE = 'ਸੈਟਿੰਗਾਂ'
+SETTINGS_MENU_TITLE = 'ਸੈਟਿੰਗਾਂ'
+SETTINGS_FLOAT = 'Cash float ($)'
+SETTINGS_STORETIME = 'ਫਾਈਲਾਂ ਨੂੰ ਸਟੋਰ ਕਰਨ ਦਾ ਸਮਾਂ'
+SETTINGS_PATH = 'ਫਾਈਲਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ ਸਥਾਨ'
+SETTINGS_PATH_BROWSE = 'Browse...'
+SETTINGS_THEME = 'ਪ੍ਰੋਗਰਾਮ ਦੀ ਦਿੱਖ'
+SETTINGS_UNIT_TEMPERATURE = 'Temperature Units'
+#THEME_DEFAULT = 'ਚਿੱਟੀ ਦਿੱਖ'
+#THEME_BAD = 'ਖਾਲੀ ਦਿੱਖ'
+#THEME_TEST = 'ਖਾਲੀ ਦਿੱਖ'
+#THEME_NOOR = 'ਨੂਰ ਦੀ ਦਿੱਖ'
+#THEME_GOOD = 'ਹਨੇਰਾ ਦਿੱਖ'
+#THEME_HAKD = 'ਕੰਪਿਊਟਰ ਮਾਹਰ ਦਿੱਖ'
+SETTINGS_SAVE = 'ਸਟੋਰ ਸੈਟਿੰਗ'
+SETTINGS_QUIT = 'ਵਾਪਸ'
+SETTINGS_RESET = 'ਸਾਰੀਆਂ ਸੈਟਿੰਗਾਂ ਰੀਸੈਟ ਕਰੋ'
+SETTINGS_RESET_MSG = "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਸਾਰੀਆਂ ਸੈਟਿੰਗਾਂ ਨੂੰ ਰੀਸੈਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
+SETTINGS_SUCCESS = 'ਸੈਟਿੰਗਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਸੀ'
+
+
+#registers
+REG_FLOAT = "float: $"
+REG_TITLE = 'Registers'
+REG_ACT = 'ਖੁੱਲਾ'
+REG_NAME = 'ਨਕਦ ਦਰਾਜ਼'
+REG_PCARDS = 'ਪੈਸੇ ਕਾਰਡ ਦੀ ਰਕਮ'
+REG_PP_A = 'ਜੋੜ'
+REG_PP_B = 'ਜੋੜ'
+REG_PP_C = 'ਜੋੜ'
+REG_TILL = 'ਮਸ਼ੀਨਾਂ ਦਾ ਜੋੜ'
+REG_VOUCHERS = 'Vouchers total'
+REG_ROLLS = 'Rolls'
+REG_SAVE = 'Save'
+REG_BACK = 'Back'
+REG_QUIT = 'Are you sure you want to quit? Any unsaved work will be lost.'
+REG_CRASH = "An error occurred loading the menu. It's recommended to reload the application. If the problem persists, please contact us through the \"bug report\" option and send us the file called \"error.log\"."
+REG_TOTAL_TITLE = "total for register"	#this is followed by the name of the register (ex: "total for register A")
+
+PP_TIT = 'Punch Cards'		#title for ppcalc window
+PP_ADD_BTN = 'Add'
+PP_DONE_BTN = 'Done'
+PP_EXIT_BTN = 'Cancel'

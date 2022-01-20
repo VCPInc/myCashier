@@ -1,0 +1,86 @@
+LNAME = 'Italian'		#language name
+TRANSLATOR = 'Antonio Guido Leoni'
+CONTACT_INFO = "replit.com/@aleoni"
+
+
+#main menu
+MAIN_TITLE = 'Menu Principale'				#title for the main menu window
+START_BTN = 'Compila il file'				#title of the start button in the mainmenu
+PRINT_BTN = 'Stampa'					#title of the button to send to a printer
+SETTINGS_BTN = 'Impostazioni'				#title of the button that opens settings
+QUIT_BTN = 'Esci'					#title of the button to quit
+INCOMPLETE_MSG = 'non hai ancora aggiornato i registri'	#message shown when there's no file for today
+COMPLETE_MSG = 'per oggi hai finito!'			#message shown when there is a file for today
+QUIT_TITLE = ''						#title of the window opened when quitting
+QUIT_MESSAGE = 'Sei sicuro di voler uscire da questo fantastico programma?'
+FILENOTFOUND_TITLE = 'Errore'
+PRINTERROR_TITLE = 'Errore'
+FILENOTFOUND_MESSAGE = 'Nessun file trovato con la data di oggi. compila i registri e riprova'
+PRINTERROR_MESSAGE = "C'è stato un errore nella stampa del file"
+WINDOW_RELOAD_MSG = "Per applicare le modifiche è necessario riavviare l'applicazione. Vuoi continuare? Le modifiche non salvate andranno perse."
+
+MENU_CREDITS = 'La squadra'
+VCPINC_NAME = 'VCP Inc.'
+NAME_NOOR = 'Bhavnoor Saroya'
+NAME_ANTONIO = 'Antonio Guido Leoni'
+NAME_SAM = 'Sam Wiebe'
+NAME_RICK = 'Riccardo'
+ABOUT_DEVS = 'Gli sviluppatori'
+ABOUT_DEVS_MSG = """Sugli sviluppatori:\nAl momento della stesura questo messaggio, siamo un gruppo di diciassettenni con la passione per l'informatica, e questo è un progetto assegnatoci dal nostro insegnante di programmazione. \n Se doveste trovare un bug, non esitate a farcelo sapere attraverso l'opzione "Segnala un problema" nel menu di aiuto.\nSaluti dal 2021."""
+ABOUT_VCP = 'Su VCP Inc.'
+ABOUT_VCPINC_MSG = """  Il "VCP" in "VCP inc." sta per "Very Cool Programmers", una qualità che proviamo sempre a mantenere. Tutto il nostro lavoro è proprietario e confidenziale, a meno di indicazioni contrarie; pertanto, la distribuzione di questo programma, a meno dell'esplicito permesso degli sviluppatori, non è mai consentito.\nI principi che fungono da pilastro del nostro lavoro sono onestà, chiarezza e spirito: per questo ci teniamo a far sapere che nessun animale è stato (direttamente) danneggiato durante il processo di creazione del programma. Non si può dire altrettanto della sanità mentale degli sviluppatori.\n © 2021 VCP inc."""
+TRANSLATORS = 'Traduttori'
+OTHER_THANKS = "Ringraziamenti"
+
+MENU_HELP = 'Aiuto'
+HELP_GUIDE = "Guida all'uso (inglese)"
+HELP_BUG = 'Segnala un problema'
+BUGREPORT_MSG = '''Vi ringraziamo per aver preso del tempo per segnalarci un problema: questo programma ha inclusa una garanzia a vita, e saremo perciò lieti di risolvere errori, problemi, o qualunque altra cosa. Vi ringraziamo perla vostra pazienza e speriamo di riuscire a risolvere il problema velocemente. Se l'applicazione dovesse subire una chiusura inaspettata o un crash di qualunque tipo, inviateci il contenuto del file chiamato "errors.log" (se presente), e cancellate il file.\n\nPotete contattarci ai nostri indirizzi email:\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'''
+
+LANGUAGE_TXT = 'Scegli la lingua'
+
+
+#settings
+SETTINGS_TITLE = 'Impostazioni'
+SETTINGS_MENU_TITLE = 'Impostazioni'
+SETTINGS_FLOAT = 'Fondo di cassa (CAD)'
+SETTINGS_STORETIME = 'mantieni i file per: (giorni)'
+SETTINGS_PATH = 'Cartella dei file'
+SETTINGS_PATH_BROWSE = 'Sfoglia...'
+SETTINGS_THEME = 'Tema'
+SETTINGS_UNIT_TEMPERATURE = 'Unità di misura per la temperatura'
+#THEME_DEFAULT = 'Default'
+#THEME_BAD = 'Tema Deficiente'
+#THEME_TEST = 'Prova'
+#THEME_NOOR = 'El Noor'
+#THEME_GOOD = 'Tema Scuro'
+#THEME_HAKD = 'Tema da Hacker'
+SETTINGS_SAVE = 'Salva le modifiche'
+SETTINGS_QUIT = 'Indietro'
+SETTINGS_RESET = 'Reimposta'
+SETTINGS_RESET_MSG = 'Sei sicuro di voler reimpostare tutto al valore predefinito?'
+SETTINGS_SUCCESS = 'Salvato!'
+
+
+#registers
+REG_FLOAT = "Fondo: $"
+REG_TITLE = 'Compila i registri'
+REG_ACT = 'attivo'
+REG_NAME = 'Registro'
+REG_PCARDS = 'Totale punch cards'
+REG_PP_A = 'Calcola'
+REG_PP_B = 'Calcola'
+REG_PP_C = 'Calcola'
+REG_TILL = 'Valore segnato'
+REG_VOUCHERS = 'Totale vouchers'
+REG_ROLLS = 'Rolls'
+REG_SAVE = 'Salva'
+REG_BACK = 'Annulla'
+REG_QUIT = 'Sei sicuro di voler uscire? Le modifiche non salvate andranno perdute.'
+REG_CRASH = """C'è stato un problema nel caricamento della pagina. Consigliamo di provare a riaprire l'applicazione, ma se il problema dovesse persistere contattateci attraverso l'opzione "segnala un problema". Per facilitarci il rintracciamento del problema, inviateci anche il file chiamato "error.log"."""
+REG_TOTAL_TITLE = "totale del registro"	#this is followed by the name of the register (ex: "total for register A")
+
+PP_TIT = 'Punch Cards'		#title for ppcalc window
+PP_ADD_BTN = 'Aggiungi'
+PP_DONE_BTN = 'Fine'
+PP_EXIT_BTN = 'Annulla'

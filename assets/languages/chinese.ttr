@@ -1,0 +1,86 @@
+LNAME = 'Chinese'		#language name
+TRANSLATOR = '\chai + google translate'
+CONTACT_INFO = "replit.com/@ChakWang"
+
+
+#main menu
+MAIN_TITLE = '主菜单'
+START_BTN = '开始'
+PRINT_BTN = '打印'
+SETTINGS_BTN = '设置'
+QUIT_BTN = '退出'
+INCOMPLETE_MSG = '今天的工作还没做完'
+COMPLETE_MSG = '今天的工作完成了'
+QUIT_TITLE = ''
+QUIT_MESSAGE = '你确定要停止吗?'
+FILENOTFOUND_TITLE = 'error'
+PRINTERROR_TITLE = 'error'
+FILENOTFOUND_MESSAGE = 'no file found for today'
+PRINTERROR_MESSAGE = 'there was an error printing the file'
+WINDOW_RELOAD_MSG = ""
+
+MENU_CREDITS = 'credits'
+VCPINC_NAME = 'VCP Inc.'
+NAME_NOOR = 'Bhavnoor Saroya'
+NAME_ANTONIO = 'Antonio Guido Leoni'
+NAME_SAM = 'Sam Wiebe'
+NAME_RICK = 'Surprise!'
+ABOUT_DEVS = 'About the devs'
+ABOUT_DEVS_MSG = 'About us:\nAt the time of writing we are a group of grade 12 high school students, this program is written as challenge/project for our programming class. \n If you find a bug feel free to let us know through the bug report option in the help menu.\nWarm Regards from the year 2021.'
+ABOUT_VCP = 'About VCP Inc.'
+ABOUT_VCPINC_MSG = 'VCP inc. stands for "Very Cool Programmers inc.", which we strive to be. All work done under the VCP inc umbrella is proprietary and confidential unless specified otherwise, re-distribution of this program without written permission from the developers is forbidden.\nAt VCP inc we strive to uphold the principles of honesty, clarity, and humor, for this reason it should be noted that no animals were directly harmed in the making of this program, the same cannot be said for the sanity of the developers.\n © 2021 VCP inc.'
+TRANSLATORS = 'Translators'
+OTHER_THANKS = "Special thanks"
+
+MENU_HELP = 'help'
+HELP_GUIDE = '程序说明'
+HELP_BUG = '反馈问题'
+BUGREPORT_MSG = 'Thank you for taking time out to report a bug, this program comes included with lifetime warranty, any issues you encounter should be emailed to the developers. We thank you for your patience. We hope we can have them resolved quickly. To help us fix any issues you encounter, please email to us the file called "errors.log" and delete it afterwards.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
+
+LANGUAGE_TXT = '选择语言'
+
+
+#settings
+SETTINGS_TITLE = '设置'
+SETTINGS_MENU_TITLE = '设置'
+SETTINGS_FLOAT = 'Cash float ($)'
+SETTINGS_STORETIME = 'Time to store files (days)'
+SETTINGS_PATH = 'Save path'
+SETTINGS_PATH_BROWSE = 'Browse...'
+SETTINGS_THEME = 'Applcation Theme'
+SETTINGS_UNIT_TEMPERATURE = 'Temperature Units'
+#THEME_DEFAULT = '基础背景'
+#THEME_BAD = '傻子背景'
+#THEME_TEST = '测试背景'
+#THEME_NOOR = 'Noor 背景'
+#THEME_GOOD = '黑夜背景'
+#THEME_HAKD = 'Hacker Theme'
+SETTINGS_SAVE = '保存设置'
+SETTINGS_QUIT = '返回'
+SETTINGS_RESET = '重置设置'
+SETTINGS_RESET_MSG = '请再次确定你要重置设置?'
+SETTINGS_SUCCESS = '保存好了!'
+
+
+#registers
+REG_FLOAT = "float: $"
+REG_TITLE = '注册'
+REG_ACT = '工作'
+REG_NAME = '注册'
+REG_PCARDS = '午饭卡片的总数'
+REG_PP_A = '总数'
+REG_PP_B = '总数'
+REG_PP_C = '总数'
+REG_TILL = 'Till reading'
+REG_VOUCHERS = 'Vouchers total'
+REG_ROLLS = 'Rolls'
+REG_SAVE = '保存'
+REG_BACK = '返回'
+REG_QUIT = '请再次确定需要退出，没保存的东西将会消失'
+REG_CRASH = "An error occurred loading the menu. It's recommended to reload the application. If the problem persists, please contact us through the \"bug report\" option and send us the file called \"error.log\"."
+REG_TOTAL_TITLE = "total for register"	#this is followed by the name of the register (ex: "total for register A")
+
+PP_TIT = '午饭卡片'		#title for ppcalc window
+PP_ADD_BTN = '加新的午饭卡片'
+PP_DONE_BTN = '完成'
+PP_EXIT_BTN = '取消'

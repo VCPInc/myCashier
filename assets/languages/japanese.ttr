@@ -1,0 +1,86 @@
+LNAME = 'Japanese'		#language name
+TRANSLATOR = 'Hiroki Nariyoshi'
+CONTACT_INFO = ""
+
+
+#main menu
+MAIN_TITLE = 'メインメニュー'
+START_BTN = 'スタート'
+PRINT_BTN = 'プリント'
+SETTINGS_BTN = 'セッティング'
+QUIT_BTN = '終了'
+INCOMPLETE_MSG = '今日の仕事は終わってません'
+COMPLETE_MSG = '今日の仕事は終わりました！'
+QUIT_TITLE = ''
+QUIT_MESSAGE = '本当にやめますか？'
+FILENOTFOUND_TITLE = 'エラー'
+PRINTERROR_TITLE = 'エラー'
+FILENOTFOUND_MESSAGE = '今日のファイルは見つかりません'
+PRINTERROR_MESSAGE = 'ファイルのプリンﾄにエラーがありました'
+WINDOW_RELOAD_MSG = ''
+
+MENU_CREDITS = 'クレジット'
+VCPINC_NAME = 'VCP Inc.'
+NAME_NOOR = 'バヴノール　サヨラ'
+NAME_ANTONIO = 'アントニオ　グイード レオーニ'
+NAME_SAM = 'サム ウィーブ'
+NAME_RICK = 'サプライズ！'
+ABOUT_DEVS = '開発者のこと'
+ABOUT_DEVS_MSG = '私たちのこと:\nこれを書いている時点で、私たちは12年生の高校生のグループであり、このプログラムは私たちのプログラミングクラスのチャレンジ/プロジェクトとして書かれています。 \n バグを見つけたら「バルレポート」のオプションでぜひ伝えてください。\n２０２１年より.'
+ABOUT_VCP = 'VCP inc. のこと'
+ABOUT_VCPINC_MSG = 'VCP inc. の意味は、 "Very Cool Programmers inc."[とてもすごいプログラマーズ　inc.]、 私たちの目指していること。 VCP incで行われるれるすべての作業は、特に明記されていない限り、専有および機密情報です。開発者からの書面による許可なしにこのプログラムを再配布することは禁じられています。\nVCP inc では、正直さ、明快さ、そして面白さを認めています。この理由で注意すべきことは動物は決してこのプログラムの作り方にダメージは受けませんでした。プログラマーズの事情は違います。\n © 2021 VCP inc.'
+TRANSLATORS = '翻訳者'
+OTHER_THANKS = "特別な感謝"
+
+MENU_HELP = 'ヘルプ'
+HELP_GUIDE = 'ユーザーガイド'
+HELP_BUG = 'バグをリポート'
+BUGREPORT_MSG = 'バグをリポートしてくれてありがとうございます。このプログラムは一生保証がついています。問題はすべてデベロッパーたちにイーメイルで送ってください。ご理解のほどよろしくお願いいたします。早く解決できることを願っています。\nバヴノール　サヨラ、 サム ウィーブ、 アントニオ　グイード レオーニ \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
+
+LANGUAGE_TXT = "国語"
+
+
+#settings
+SETTINGS_TITLE = 'セッチング'
+SETTINGS_MENU_TITLE = 'セッチングメニュー'
+SETTINGS_FLOAT = 'お金フロート　（＄）'
+SETTINGS_STORETIME = 'ファイルをストアする時間 （日）'
+SETTINGS_PATH = '道をセーブ'
+SETTINGS_PATH_BROWSE = 'ブラウズ。。。'
+SETTINGS_THEME = 'アプリテーマ'
+SETTINGS_UNIT_TEMPERATURE = '温度単位'
+#THEME_DEFAULT = 'ディフォルト'
+#THEME_BAD = 'バカテーマ'
+#THEME_TEST = 'テストテーマ'
+#THEME_NOOR = 'ライトテーマ'
+#THEME_GOOD = 'ダークテーマ'
+#THEME_HAKD = 'ハッカーテーマ'
+SETTINGS_SAVE = 'セッチングをセーブ'
+SETTINGS_QUIT = '戻る'
+SETTINGS_RESET = 'セッチングをリセット'
+SETTINGS_RESET_MSG = '本当にセッチングをルセットしたいですか？'
+SETTINGS_SUCCESS = 'セーブ完了！'
+
+
+#registers
+REG_FLOAT = 'フロート：＄'
+REG_TITLE = 'レジスター'
+REG_ACT = 'アクチブ'
+REG_NAME = 'レジスター'
+REG_PCARDS = 'パンチカードのトータル'
+REG_PP_A = '合計'
+REG_PP_B = '合計'
+REG_PP_C = '合計'
+REG_TILL = 'チルの結果'
+REG_VOUCHERS = 'ヴァウチャーノトータル'
+REG_ROLLS = 'ロール'
+REG_SAVE = 'セーブ'
+REG_BACK = '戻る'
+REG_QUIT = '本当にやめますか？セーブされていない物は消されます。'
+REG_CRASH = "メニューのローディングにエラーが起きました。アプリをリロードしてください。問題が解決しない場合は、「バグレポート」オプションからご連絡いただき、「error.log」というファイルをお送りください。"
+REG_TOTAL_TITLE = "レジスターの合計"
+
+PP_TIT = 'パンチカード'		#title for ppcalc window
+PP_ADD_BTN = '追加'
+PP_DONE_BTN = '終わり'
+PP_EXIT_BTN = 'キャンセル'
