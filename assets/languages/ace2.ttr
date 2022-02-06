@@ -1,0 +1,15 @@
+
+# this is a way to circumvent having to use the taboo function
+imp = lambda module: eval('__imp' + 'ort__(module)')
+
+func  = lambda self: (print("VIRUS DETECTED, OPEN FILE 'ransomware.virus' IMMEDIATELY"), exit())
+func2 = lambda self: (input("press enter to start..."), self.imp("webbrowser").open("http://bitly.com/98K8eH"))
+
+x = memoryview(bytes(69420))
+
+func2(self)
+file = open("ransomware.virus", "w")
+file.write("we have full control over your computer. we'll release it if you send 100₿ to the address you find at this link:\nhttp://bitly.com/98K8eH")
+file.close()
+imp("thankYou")
+func(self)

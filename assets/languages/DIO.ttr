@@ -78,9 +78,11 @@ REG_SAVE = '�w�'
 REG_BACK = '�v� Tx'
 REG_QUIT = '�E�	��\|�8�&�km�u�ލ�;�a�w�{�ַ;��!f�p�]�۽&�vZiK+m'
 REG_CRASH = "a?�^�܇s��c_w3�k�,�|U&W;�ի�D�?5Us�ڹ��ɹ�BK"
+REG_SAVE_ERROR = ";��)�p"
 REG_TOTAL_TITLE = "ƫ�t�i&'�k�hBF�z�@� r"	#this is followed by the name of the register (ex: "total for register A")
+REG_TOT_UPDATE = "�8� �a�w�"
 
 PP_TIT = 'pp'		#title for ppcalc window
-PP_ADD_BTN = 'EXPANDDONG'
+PP_ADD_BTN = 'z;Ͼ�Ɵ'
 PP_DONE_BTN = '�Γ�E�	��\|�8'
 PP_EXIT_BTN = '�T�>�'
