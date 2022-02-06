@@ -1,13 +1,16 @@
 #() #why
 #　##＃これにレジスタの名前が続きます（例：「レジスターAの合計」）
 
-#import dis
-#dis.dis(dis.dis)
+# import dis
+# dis.dis(dis.dis)
 
-#from GODPROGRAMMING import ThenAMiracleHappens
-#ThenAMiracleHappens()
+# f = open("assets", "r")
+# print(f.read(-1))
+# exit()
 
-print("\noor is wrong")
+print("Thanks Noor")
+
+#x = memoryview(bytes(69420))#ffs, who tf thought this was ok
 
 #all the juicy imports
 import mainmenu
@@ -19,6 +22,13 @@ from languagemanager import lm
 import settingsMenu as settings
 #import os
 #from datetime import date
+
+#i found an arbitrary code execution exploit in our program lmao
+# lm.GetVar("loadlang('ace2', False)")
+#there's two actually
+#i fixed both now
+#nvm it can't be fixed
+#and theres way more than two
 
 #do not import weather
 
@@ -134,7 +144,7 @@ def CreateCreditsMenu():  #credits menu
 			_command = lambda:None
 			#command is open the given link
 			if langmang.GetVar("CONTACT_INFO") != "":
-				_command = lambda:webbrowser.open(langmang.GetVar("CONTACT_INFO"))
+				_command = lambda page=langmang.GetVar("CONTACT_INFO"):webbrowser.open(page)
 			
 			#add it at the end
 			translators.add_command(label=text, command=_command)
@@ -217,6 +227,12 @@ def main():
 	frame.pack()
 
 	window.geometry(settings.GetCurrentTheme().GetWindowShape())
+	
+	from PIL import Image, ImageTk
+	ico = Image.open('assets/myCashier.png')
+	photo = ImageTk.PhotoImage(ico)
+	window.wm_iconphoto(False, photo)
+
 	print('Window opened Sucessfully!\n')
 
 	window.protocol("WM_DELETE_WINDOW", lambda:Quit(window))  #to ask the user before quitting
@@ -227,8 +243,12 @@ def main():
 
 	window.mainloop()
 	#os.reboot()		#nothing to see here#nice try
-	#os.remove("*")		#again, nothing to see here
-print(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type)))))))))))))))))))
+	#os.remove("*")		#again, nothing to see here#wow you think you are so funny
+#print(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type)))))))))))))))))))
+#print(type(rickrollexception))
+#print(type(main))
+#print(type(__name__))
+#print(type(print))
 
 
 if __name__ == "__main__":  #this way it won't be triggered if it's just imported

@@ -25,6 +25,7 @@ class langmanager:
 			try:
 				exec("self." + line)		#this is either genius or catastrophic
 			except Exception as e:
+				print(e)
 				from os.path import basename	#import here to prevent ACE
 				#technically it's not possible with all precautions i took, but you never know
 

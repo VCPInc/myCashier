@@ -105,8 +105,6 @@ def SaveSetting(name, value):
 	if name == "deleteTime":
 		file["A1"] = int(value)
 	elif name == "savepath":
-		if not value[-1] == "/":
-			value += "/"
 		file["A2"] = value
 	elif name == "float":
 		file["B1"] = float(value)

@@ -95,9 +95,9 @@ def weather(tempstate="C", city="Nanaimo"):
 	else: print("Invalid temperature unit passed, and no, Farenheit is not a valid temperature unit. For users that disagree, we recommend the guilotine. ")
 
 	api_key = "a87d5e24ba113d24c19a7d97ed3213b7"#typing an api key directly into a public replit is a bad idea for 	so many reasons, yet here I am doing it anyway. 
-	
+	#												now on github too!
 	#										 ^
-	#API KEY RIGHT HERE / \
+	#					 API KEY RIGHT HERE / \
 	#										 |
 	#										 |      USE IT RESPONSIBLY
 	#										 |
@@ -120,6 +120,8 @@ def weather(tempstate="C", city="Nanaimo"):
 
 	icon = response['weather'][0]['icon']#this started magically working at the same time as description, so i havent messed with it since then. 
 
+	if tempstate == "C":
+		tempstate = "°C"
 
 #here we are returning a dictionary with each value as its own key.
 	return {
@@ -127,7 +129,8 @@ def weather(tempstate="C", city="Nanaimo"):
 		'feels_like' : feels_like, #the feels like temperature
 		'humidity' : humidity, #humidity, again self explanatory
 		'description' : description, #this one is for the description of the weather, examples include sunny, light rain, cloudy, mist, etc.
-		'icon': icon#icon code provided to set the correct icon, icons are prenamed and provided by openweathermap.
+		'icon': icon,#icon code provided to set the correct icon, icons are prenamed and provided by openweathermap.
+		"tempstate" : tempstate
 	}
 
 	

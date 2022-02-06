@@ -70,7 +70,7 @@ def ppcalc(register):
 	print("end of ppcalc definition")
 
 	import settingsMenu as settings
-	settings.ApplyTheme(cal, cal)	#this shit doesnt work unless i do this terribleness
+	settings.ApplyTheme(cal, cal)
 	ApplyLanguage(cal)
 	cal.mainloop() #wait
 

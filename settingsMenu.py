@@ -28,11 +28,12 @@ def OpenMainMenu(window, frame):
 #TODO: make the theme and the save work well togtether
 def Save():
 	import filemanager
-	from os.path import isdir
 	from registers import NumberHasDecimalPlaces
 	
 	flag = True
 	theme = GetCurrentTheme()
+
+	#check and set float
 	try:
 		if NumberHasDecimalPlaces(float(floatset.get()), 2) is not True: raise
 		#if float(floatset.get()) != 163: raise "no" #thanks to sam we cant have nice things
@@ -42,24 +43,33 @@ def Save():
 	except:
 		floatset["bg"] = theme.EntryFieldTheming.incorrectBg
 		flag = False
-	try:
 
+	#check and set path
+	try:
 		#if this doesn't cause catastrophes then it's a valid path
-		v = open(pathField.get() + "file", "w")
+		tempfile = pathField.get() + ".virus"
+		v = open(tempfile, "w")
 		v.write("lol")
 		v.close()
-		os.remove(v)
-
-		filemanager.SaveSetting("savepath", pathField.get())
-		pathField["state"] = "normal"
-		pathField["bg"] = theme.EntryFieldTheming.background
-		pathField["state"] = "disabled"
 	except:
 		pathField["state"] = "normal"
-		pathField["bg"] = theme.EntryFieldTheming.incorrectBg
+		pathField["disabledbackground"] = theme.EntryFieldTheming.incorrectBg
 		pathField["state"] = "disabled"
 		flag = False
+	else:
+		path = pathField.get()
+		if not path[-1] == "/":
+			path += "/"
+		path = path.replace("\\", "/")
+		filemanager.SaveSetting("savepath", path)
+		pathField["state"] = "normal"
+		pathField["disabledbackground"] = theme.EntryFieldTheming.background
+		pathField["state"] = "disabled"
+	finally:
+		if os.path.isfile(tempfile):
+			os.remove(tempfile)
 	
+	#check and set delete time
 	try:
 		#could cause problems since we don't store the year
 									 			 #in other words, "raise not nice"
@@ -70,10 +80,12 @@ def Save():
 		autodelset["bg"] = theme.EntryFieldTheming.incorrectBg
 		flag = False
 	
+	#set theme
 	global themelist
 	index = themelist.index(selectedTheme.get())
 	filemanager.SaveSetting("theme", index)
 
+	#set temperature unit
 	filemanager.SaveSetting("unit_temp", selectedTempUnit.get())
 
 	"""
@@ -83,6 +95,7 @@ def Save():
 	colour = colourField["bg"]
 	"""
 
+	#if flag is true
 	if flag is True:
 		print("flag is True")
 		def removecheck():
@@ -121,10 +134,12 @@ def SetToDefault():
 	SaveSetting("theme", 0)
 	SaveSetting("deleteTime", 7)
 	SaveSetting("float", 163.00)
-	dirname = os.path.dirname(os.path.realpath(__file__))
-	dirname = dirname.replace("\\", "/")
-	SaveSetting("savepath", dirname + "/files/")
 	SaveSetting("unit_temp", "Celsius")
+	#TODO: change Cashier to be capitalised for the actual release. yes i really did say that
+	dirname = os.path.expanduser("~/mycashier/files")
+	if not os.path.isdir(dirname):
+		os.makedirs(dirname)
+	SaveSetting("savepath", dirname)
 
 def UpdateWindow():
 	TKclear(gframe)
@@ -172,6 +187,7 @@ def settingsmain(window, frame):
 		if not var == "":#the user pressed cancel or closed the window
 			pathField["state"] = "normal"
 			pathField.delete("0", "end")
+			if var[-1] != "/": var += "/"
 			pathField.insert("end", var)
 			pathField["state"] = "disabled"
 	#END
@@ -212,7 +228,6 @@ def settingsmain(window, frame):
 	themeSelector.grid(row=15)
 	themeSelector.config(width=14)
 
-
 #TEMPERATURE DROPDOWN
 	global selectedTempUnit
 	selectedTempUnit = tk.StringVar()
@@ -222,7 +237,6 @@ def settingsmain(window, frame):
 	tempunitSelector = tk.OptionMenu(frame, selectedTempUnit, *["Celsius", "Kelvin"])
 	tempunitSelector.grid(row=17)
 	tempunitSelector.config(width=14)
-
 
 	#for empty space
 	tk.Label(frame).grid(row=18)

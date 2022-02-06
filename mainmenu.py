@@ -45,17 +45,11 @@ def Printer():
 		print(e)
 		rnuo.showerror(lm.GetVar("PRINTERROR_TITLE"), lm.GetVar("PRINTERROR_MESSAGE"))
 
-def TickMark(frame):
-	ROW=1
-	lab = tk.Label(frame, text="✓", fg="green")
-	lab.grid(row=ROW, rowspan=3, column = 1)
-	lab.config(font=("Courier", 60))
-	lab = tk.Label(frame, text="COMPLETE_MSG")		#for btns and labels we translatge at the end bc we have to aplly the theme
-	lab.grid(row=ROW+2, rowspan=1, column = 1)
-	lab.config(font=("Courier", 10))
 
-def Weather(frame):
+def Weather(window, frame):
 	from weather import weather as actual_weather8
+	from settingsMenu import GetCurrentTheme
+	theme = GetCurrentTheme()
 	
 	try:
 		import your_own_goddamned_computer
@@ -68,26 +62,75 @@ def Weather(frame):
 	except:
 		print("the police prevented us from importing some people. too bad!")
 
-	return
-
 	import settingsMenu as settings
 	welist = actual_weather8(settings.GetSetting("unit_temp")[0], "Nanaimo")
 
-	ROW, COLUMN = 1, 1
+	try:
+		import mikeals_code
+	except:
+		print("it was garbage anyways")
+
+	ROW, COLUMN = 4, 1
+
 
 	from PIL import ImageTk, Image
+	#img = ImageTk.PhotoImage(Image.open("assets/icons/" + welist["icon"] + ".png"))
+	img = ImageTk.PhotoImage(Image.open("assets/icons/" + '50d' + ".png"))
+	image = tk.Label(frame, image = img, text='')
+	image . grid(row=ROW, column=COLUMN, columnspan=3, rowspan=2, sticky='s')
 
-	img = ImageTk.PhotoImage(Image.open("assets/icons/" + welist["icon"] + ".png"))
-	panel = tk.Label(frame, image = img)
-	panel.grid(row=ROW, column=COLUMN)#, rowspan=3, columnspan=2)
+	desc=welist['description']
+	desc = desc.capitalize()
+
+	temp=哔哔生菜(str(welist['temp']), 0)
+
+	label_taxt = f"{desc}\n{temp}{welist['tempstate']}"
+	label = tk.Label(frame, text=label_taxt)
+	label . grid(row=6, column=1, rowspan=1,  sticky='n')
+
+	theme.SetPropertiesForWidget(label)
+	theme.SetPropertiesForWidget(image)
+	
+	window.mainloop()
+
+def 哔哔生菜(怒骂, 色彩):
+	# 汉语功能
+	零 = 0
+	一 = 1
+	负一 = -一
+	发咯 = float
+	石头人 = str
+	from registers import NumberHasDecimalPlaces as 怒骂的产品拉长
+
+	怒骂 = 发咯(怒骂)
+	if 怒骂的产品拉长(怒骂, 一):
+		怒骂 = 石头人(怒骂) + 石头人(零)
+	else:
+		怒骂 = 石头人(怒骂)
+	怒骂 = 怒骂[:怒骂.index(".") + 色彩 + 一]
+
+	if 色彩 == 零:		# 台湾是国
+		怒骂 = 怒骂[:负一]
+
+	return 怒骂
+
+def TickMark(frame):
+	ROW=1
+	lab = tk.Label(frame, text="✓", fg="green")
+	lab.grid(row=ROW, rowspan=3, column = 1, sticky='n')
+	lab.config(font=("Courier", 60))
+	lab = tk.Label(frame, text="COMPLETE_MSG")		#for btns and labels we translatge at the end bc we have to aplly the theme
+	lab.grid(row=ROW+2, rowspan=1, column = 1, sticky='n')
+	lab.config(font=("Courier", 10))
+
 
 def Xmark(frame):
 	ROW=1
 	lab = tk.Label(frame, text="!", fg="yellow")
-	lab.grid(row=ROW, rowspan=3, column = 1)
+	lab.grid(row=ROW, rowspan=3, column = 1, sticky='n')
 	lab.config(font=("Courier", 60))
 	lab = tk.Label(frame, text="INCOMPLETE_MSG")
-	lab.grid(row=ROW+2, rowspan=1, column = 1)
+	lab.grid(row=ROW+2, rowspan=1, column = 1, sticky='n')
 	lab.config(font=("Courier", 10))
 
 # main function of mainmenu. called when we want to open mainmenu
@@ -165,16 +208,16 @@ def mainmain(window, frame):
 	"""
 	if True:
 #		underbtnclr = 'steelblue'
-		spacerBtn = tk.Button(frame, text = "", width = int(90), height = 1, bd=0, state=tk.DISABLED)
-		spacerBtn.grid(row=7,column=1
+		spacerBtn = tk.Label(frame, text = "", width = int(90), height = 1, bd=0)
+		spacerBtn.grid(row=19,column=1
 		) #thanks Antonio 
 		if False:
-			spacerBtn2 = tk.Button(frame, text = "", width = 45, height = 1, bd=0, state=tk.DISABLED)
+			spacerBtn2 = tk.Label(frame, text = "", width = 45, height = 1, bd=0)
 			spacerBtn2.grid(row=7,column=2)
 
 		#the button under the other buttons
-		BtnUnder = tk.Button(frame, text="", width=14, height=30, bd=0, state=tk.DISABLED)
-		BtnUnder.grid(row=4, column = 0, sticky=tk.E)
+		BtnUnder = tk.Button(frame, text="", width=14, height=43, bd=0, state=tk.DISABLED)
+		BtnUnder.grid(row=5, column = 0, sticky=tk.E, rowspan=8)
 
 		#update registers button
 		# bg="lavenderblush3"
@@ -207,7 +250,7 @@ def mainmain(window, frame):
 """
 		#calendar
 		cal = Calendar(frame, selectmode = 'none', year = today.year, month = today.month, day = today.day)
-		cal.grid(row=4,column=1,rowspan=1)
+		cal.grid(row=7,column=1,rowspan=1)
 		#----------------------------------------------------
 
 	if filemanager.FileForTodayExists() == True:
@@ -222,4 +265,6 @@ def mainmain(window, frame):
 
 	#weather has to be done after everythinf becasue yes
 	print("Beginning Weather sequence: ")
-	Weather(frame)
+	Weather(window, frame)
+
+	# window.mainloop()

@@ -94,17 +94,19 @@ def ValidateInput():
 #END
 def Finish():
 	"""This function saves all changes to the file and goes back to main menu, if valid"""
-	from openpyxl import load_workbook
-	import GODPROGRAMMING
-
-	#copy the temp file to a new file in the save data path
-	fname = filemanager.GetTodaysFileWithPath()
-	GODPROGRAMMING.Pray(fname)		#if you can't understand GODPROGRAMMING, you don't deserve the explanation
-
-	if ValidateInput() is not True:
-		return 0
-
+	
 	try:
+		from openpyxl import load_workbook
+		import GODPROGRAMMING
+
+		#copy the temp file to a new file in the save data path
+		fname = filemanager.GetTodaysFileWithPath()
+		GODPROGRAMMING.Pray(fname)		#if you can't understand GODPROGRAMMING, you don't deserve the explanation
+
+		if ValidateInput() is not True:
+			return 0
+		
+		
 		wb = load_workbook(filename = fname)
 		ss = wb.active
 
@@ -121,10 +123,18 @@ def Finish():
 			ss["G19"] = float(settings.GetSetting("float"))
 
 		for Register in [0, 1, 2]:
-			#if this is true we skip this register because it has been marked as not active
-			if checkboxes[Register].get() == 0: continue
-
 			regCol = ["A", "E", "I"][Register]  #column to write to
+
+			#if this is true we skip this register because it has been marked as not active
+			thirdcol = chr(ord(regCol) + 2) #third column, for float
+			if checkboxes[Register].get() == 0:
+				ss[regCol + "3"] = "(not active)"
+				ss[thirdcol + "19"] = ""
+				continue
+			else:
+				ss[thirdcol + "19"] = float(settings.GetSetting("float")) #set the float
+
+
 			for i in range(len(coinsfields[Register])):
 				ss[regCol + str(6 + i)]  = int(coinsfields[Register][i].get())
 			for i in range(len(notesfields[Register])):
@@ -138,15 +148,12 @@ def Finish():
 
 			ss[regCol + "12"] = int(rollsfields[Register].get())
 			ss["B" + str(33 + Register)] = int(vouchersfields[Register].get())
-
-			regCol = chr(ord(regCol) + 1) #third column, for float
-
-			ss[regCol + "19"] = float(settings.GetSetting("float")) #set the float
 		#END FOR
 		
 		wb.save(fname)
 	except Exception as e:
 		print(e)
+		rnuo.showerror(message=lm.GetVar("REG_SAVE_ERROR"))
 		return 0
 	
 	QuitToMainMenu(True)
@@ -212,33 +219,43 @@ def ToggleRegister(a, b, c):
 		çéèòàù["state"] = state
 
 
+
 totfields = []		#list of fields for totals
-def OnTextFieldChanged(a,b,c):
+def UpdateTotals():
 	global finishedflag
 	if finishedflag is not True: return		#to avoid index errors because we do it before we place all of them
 
+	theme = GetCurrentTheme()
+	incorrectBG = theme.EntryFieldTheming.incorrectBg
+	correctBG = theme.EntryFieldTheming.background
+
 	#because i don't want to make things too complicated, this updates every total, every time a change is made
 	print("updating totals...")
-	global totfields, coinsfields, notesfields
+	global totfields, coinsfields, notesfields		#pp  #vouch   #rolls
+	mults = [ .05, .1, .25, 1, 2, 5, 10, 25, 50 ] + [1] + [5]   + [10]
 	for i in [0, 1, 2]:
-		print("	updating total for register", i)
 		tot = 0
-		for singlefield in (coinsfields[i] + notesfields[i]):
-			delta = singlefield.get()
+		combinedlist = (coinsfields[i] + notesfields[i] + [pcardsfields[i]] + [vouchersfields[i]] + [rollsfields[i]])
+		for fieldaddr in range(len(combinedlist)):
+			singlefield = combinedlist[fieldaddr]
 			try:
-				tot += round(float(delta), 2)	#we try adding to the total
+				delta = round((float(singlefield.get()) * mults[fieldaddr]), 2)
+				tot += delta	#we try adding to the total
+				singlefield["bg"] = correctBG
 			except:		#if it's not a valid value skip it
-				pass	#i hate that i have to write "except: pass" every time ffs
-		print("	total for this register is", tot, ", writing to the field...")
+				singlefield["bg"] = incorrectBG
 		#when we reach this we're done calculating the total for each register
 		#so we just set the total
+		if NumberHasDecimalPlaces(tot, 1):
+			tot = str(tot) + "0"
+		else:
+			tot = str(tot)
+		tot = tot[:tot.index(".") + 3]
 		totfields[i]["state"] = "normal"
 		totfields[i].delete("0", "end")
-		totfields[i].insert("0", str(tot))
+		totfields[i].insert("0", (tot))
 		totfields[i]["state"] = "disabled"
-		print("	done!\n")
 #END FUNC
-def UpdateTotals(): OnTextFieldChanged(None, None, None)
 
 
 OpenedOnce = False
@@ -247,12 +264,12 @@ def registersmain(window, frame):
 	from openpyxl import load_workbook
 
 	try:   #if any error happens we'll go back to mainmenu to avoid catastrophes
-
+		"""
 		import datetime
 		global OpenedOnce
 		if datetime.date.today().month == 4 and datetime.date.today().day == 1 and OpenedOnce is False:
 			OpenedOnce = True
-			#raise rickrollException
+			#raise rickrollException"""
 
 		print("registers init")
 		print("initialising variables...")
@@ -310,9 +327,10 @@ def registersmain(window, frame):
 
 		tk.Label(frame, text="REG_ROLLS").grid(row=THIRDOFFSET+3, column=COLUMN)
 
-		wb = None
-		if filemanager.FileForTodayExists():
+		try:
 			wb = load_workbook(filename = filemanager.GetTodaysFileWithPath()).active
+		except:
+			wb = None
 		regNumToColumn = ["A", "E", "I"]  #columns in the spreadsheet
 		
 		tk.Label(frame, width=15, text=lm.GetVar("REG_FLOAT") + str(settings.GetSetting("float"))).grid(column=2, row=0)
@@ -343,10 +361,7 @@ def registersmain(window, frame):
 			
 			print("placing text fields...")
 			for i in range(1, 6):  #(A/E/I)6-10
-				#var = tk.StringVar()
-				#var.trace("w", OnTextFieldChanged)	#this way we're notified if the value changes
-
-				temp = tk.Entry(frame, width=7, validate="focus", validatecommand=UpdateTotals)
+				temp = tk.Entry(frame, width=7)#, validate="focus", validatecommand=UpdateTotals)
 				temp.grid(column=col, row=COINSOFFSET + i)
 				try:
 					temp.insert("end",
@@ -365,10 +380,7 @@ def registersmain(window, frame):
 				coinsfields[CurrentRegister].append(temp)
 			#END FOR
 			for i in range(1, 5):  #(A/E/I)13-16
-				#var = tk.StringVar()
-				#var.trace("w", OnTextFieldChanged)	#this way we're notified if the value changes
-			
-				temp = tk.Entry(frame, width=7, validate="focus", validatecommand=UpdateTotals)
+				temp = tk.Entry(frame, width=7)#, validate="focus", validatecommand=UpdateTotals)
 				temp.grid(column=col, row=ROLLSOFFSET + i)
 				try:
 					temp.insert("end",
@@ -493,6 +505,8 @@ def registersmain(window, frame):
 		totfields[1].grid(row=11, column=11)
 		totfields[2].grid(row=14, column=11)
 
+		tk.Button(frame, text=lm.GetVar("REG_TOT_UPDATE"), command=UpdateTotals).grid(row=THIRDOFFSET-1, column=11)
+
 		print("placing the empty labels...")
 		#empty labels for spaces and style
 		tk.Label(frame).grid(row=ROLLSOFFSET-1)
@@ -510,10 +524,13 @@ def registersmain(window, frame):
 		finishedflag = True
 		UpdateTotals()			#this way we can show what the actual totals are
 
+		window.mainloop()
+
 	except Exception as e:
 		import mainmenu
 		import errormanager
 		errormanager.PrintErrorLog(e)
+		print(e)
 		TKclear(frame)
 		rnuo.showerror(message=lm.GetVar("REG_CRASH"))
 		#try:
