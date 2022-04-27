@@ -1,11 +1,9 @@
+#basically eval but with no security issues (AFAIK, dont come crying to me later if it still doesnt work)
+from ast import literal_eval as _eval
+from os.path import basename as _basename
 
-class CatastrophicException(Exception):
-	def __init__(self):
-		try: os.reboot()
-		except: print("bro not cool")
-#exec("testVar = 'test value'")
-#print(testVar)
-
+LANGUAGE_PATH = "assets/languages/"
+FILE_EXT = ".ttr"
 
 class langmanager:
 
@@ -13,29 +11,32 @@ class langmanager:
 		self.loadlang(lang)
 	def loadlang(self, lang, skipBadLines=True):
 		"""loads all variables in a ttr file. if an invalid line is found it will skip it"""
-
+		
+		self.language = lang
 		ln = 0
 		#sets all variables
-		for line in open("assets/languages/" + lang + ".ttr", encoding="utf-8"):
+		for line in open((LANGUAGE_PATH + lang + FILE_EXT), encoding="utf-8"):
 			ln += 1
-			#yes this is dumb but not doing it is even dumber
-			#if "import" in line: raise CatastrophicException
-			if line == "" or line == "\n" or line[0] == "#": continue	#these two lines are edge case checking
+
+			if "=" not in line or line[0] == "#":
+				continue
 
 			try:
-				exec("self." + line)		#this is either genius or catastrophic
-			except Exception as e:
-				print(e)
-				from os.path import basename	#import here to prevent ACE
-				#technically it's not possible with all precautions i took, but you never know
+				NAME = line[:line.index("=")]
+				VALUE = _eval(line[line.index("=") + 2:])
 
+				exec(f"self.{NAME}=VALUE")
+			except:
 				if skipBadLines is True:
-					print("ERROR: invalid syntax in language file '" + basename(lang) + "' on line " + str(ln) + ":\n" + line)
+					print("ERROR: invalid syntax in language file '" + _basename(lang) + "' on line " + str(ln) + ":\n" + line)
 				else:
-					raise e
+					raise
 
 	def GetVar(self, varname):
-		return eval("self." + varname)
+		try:
+			return eval("self." + varname)
+		except:
+			raise AttributeError(f'No key named "{varname}" in language {self.language}')
 
 
 def ApplyLanguage(frame):
@@ -54,7 +55,6 @@ languages = {
 	"Italiano" : "italian",
 	"ਪੰਜਾਬੀ" : "punjabi",
 	"简体中文" : "chinese",
-#	"عربى" : "arabic",
 	"日本語" : "japanese",
 	"God's Language (simplified)" : "DIO"
 }

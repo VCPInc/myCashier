@@ -2,7 +2,9 @@
 
 ####ATTENTION Weather is now in alpha*******************
 
+####ATTENTION Weather has entered beta phase
 
+############We are pleased to release weather module v1
 
 
 
@@ -95,7 +97,7 @@ def weather(tempstate="C", city="Nanaimo"):
 	else: print("Invalid temperature unit passed, and no, Farenheit is not a valid temperature unit. For users that disagree, we recommend the guilotine. ")
 
 	api_key = "a87d5e24ba113d24c19a7d97ed3213b7"#typing an api key directly into a public replit is a bad idea for 	so many reasons, yet here I am doing it anyway. 
-	#												now on github too!
+	#												
 	#										 ^
 	#					 API KEY RIGHT HERE / \
 	#										 |
@@ -130,10 +132,12 @@ def weather(tempstate="C", city="Nanaimo"):
 		'humidity' : humidity, #humidity, again self explanatory
 		'description' : description, #this one is for the description of the weather, examples include sunny, light rain, cloudy, mist, etc.
 		'icon': icon,#icon code provided to set the correct icon, icons are prenamed and provided by openweathermap.
-		"tempstate" : tempstate
+		"tempstate" : tempstate#Temp state, relevant temperature states such as Kelvin and Celsius are available, for users that prefer farenheit, there is always the huitine
 	}
 
-	
+
+
+#For the record no body in this group actually speaks chinese so I am not sure how or why this is here. 
 #def 哔哔生菜():
 #	raise 哔哔生菜
 

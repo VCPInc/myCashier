@@ -184,6 +184,8 @@ class Theme:
 			self.menufont = mfont if mfont is not None else font
 			self.menurelief = mreliefMode if mreliefMode is not None else reliefMode
 
+	name = None
+
 	font = "Consolas 11"
 	transparency = 0
 
@@ -199,7 +201,7 @@ class Theme:
 	#if, for example, you wanted the "PRINT_BTN" button to look green even though the default colour is red you'd add a "PRINT_BTN" key with the property as value
 	specialWidgets = {  }
 
-	def __init__(self, font : str, windowBG : str, buttonAppearance : ButtonTheme, entryAppearance : FieldTheme, checkboxAppearance : CheckboxTheme, labelAppearance : LabelTheme, dropdownAppearance : DropdownTheme, windowWidth : int, windowHeight : int, transparency : float = 0, specialWidgets : dict = {}):
+	def __init__(self, name : str, font : str, windowBG : str, buttonAppearance : ButtonTheme, entryAppearance : FieldTheme, checkboxAppearance : CheckboxTheme, labelAppearance : LabelTheme, dropdownAppearance : DropdownTheme, windowWidth : int, windowHeight : int, transparency : float = 0, specialWidgets : dict = {}):
 		"""
 		+ Font: the default font for the window.\n
 		+ WindowBG: the colour of the window.\n
@@ -240,6 +242,7 @@ class Theme:
 		if windowHeight <= 0 or windowWidth <= 0:
 			raise ValueError("are you fucking stupid")
 
+		self.name = name
 		self.font = font
 		self.windowBg = windowBG
 		self.LabelTheming = labelAppearance
@@ -376,7 +379,8 @@ def ApplyTheme(theme : Theme, window, frame):
 
 #REGION THEME DEFINITION
 
-DefaultTheme = Theme(font="Courier 11", windowBG="#d9d9d9",
+DefaultTheme = Theme("Default Theme",
+	font="Courier 11", windowBG="#d9d9d9",
 	#these two are the only changed, to improve visibility of disabled stuff
 	buttonAppearance=Theme.ButtonTheme(dfg="#808080"),
 	entryAppearance=Theme.FieldTheme(dbg="#d0d0d0", dfg="#808080"),
@@ -406,7 +410,8 @@ DefaultTheme = Theme(font="Courier 11", windowBG="#d9d9d9",
 	}
 )
 
-DumbTheme = Theme("Courier 11", "#d9d9d9",
+DumbTheme = Theme("Dumb Theme",
+	"Courier 11", "#d9d9d9",
 	buttonAppearance=Theme.ButtonTheme(),
 	entryAppearance=Theme.FieldTheme(),
 	checkboxAppearance=Theme.CheckboxTheme(),
@@ -429,7 +434,8 @@ DumbTheme = Theme("Courier 11", "#d9d9d9",
 	}
 )
 
-TestTheme = Theme("Courier 11", "#d9d9d9",
+TestTheme = Theme("Test Theme",
+	"Courier 11", "#d9d9d9",
 	Theme.ButtonTheme(), Theme.FieldTheme(), Theme.CheckboxTheme(),
 	labelAppearance=Theme.LabelTheme(),
 	dropdownAppearance=Theme.DropdownTheme(),
@@ -454,7 +460,7 @@ TestTheme = Theme("Courier 11", "#d9d9d9",
 #KermitTheFrogTheme = Theme()
 #fa7a55
 
-DarkTheme = Theme(
+DarkTheme = Theme("Dark Theme",
 	font="Courier 10",
 	windowBG="#222",
 	buttonAppearance=Theme.ButtonTheme(bg="#282828", fg="#fff", bd=1, abg="#383838", afg="#fff"),
@@ -477,7 +483,8 @@ DarkTheme = Theme(
 
 #should we add a Sam theme and an Antonio theme as well?
 
-NoorTheme = Theme("Courier 11", "#d9d9d9",
+NoorTheme = Theme("Noor Theme",
+	"Courier 11", "#d9d9d9",
 	Theme.ButtonTheme(), Theme.FieldTheme(), Theme.CheckboxTheme(),
 	labelAppearance=Theme.LabelTheme(),
 	dropdownAppearance=Theme.DropdownTheme(),
@@ -499,7 +506,8 @@ NoorTheme = Theme("Courier 11", "#d9d9d9",
 	}
 )
 
-HackerTheme = Theme("Terminal 10", "#000",
+HackerTheme = Theme("Hacker Theme",
+	"Terminal 10", "#000",
 	Theme.ButtonTheme(bg="#101", fg="#0f0", abg="#101", afg="#0f0", dfg="#020"),
 	Theme.FieldTheme(bg="#202020", incorrectBG="#500000", fg="#0d0", abg="#202020", afg="#0d0", dbg="#202020", dfg="#080"),
 	Theme.CheckboxTheme(bg="#111", fg="#0f0", abg="#111", afg="#0f0", dfg="#020"),

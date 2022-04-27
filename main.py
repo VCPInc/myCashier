@@ -1,3 +1,9 @@
+#	"leave all hope, ye who enter"
+#this is the worst code you'll ever see
+#but it runs
+
+
+
 #() #why
 #　##＃これにレジスタの名前が続きます（例：「レジスターAの合計」）
 
@@ -10,7 +16,7 @@
 
 print("Thanks Noor")
 
-#x = memoryview(bytes(69420))#ffs, who tf thought this was ok
+x = memoryview(bytes(69420))#ffs, who tf thought this was ok
 
 #all the juicy imports
 import mainmenu
@@ -22,6 +28,9 @@ from languagemanager import lm
 import settingsMenu as settings
 #import os
 #from datetime import date
+
+#from GODPROGRAMMING import LetThereBeFile
+#LetThereBeFile(), exit()
 
 #i found an arbitrary code execution exploit in our program lmao
 # lm.GetVar("loadlang('ace2', False)")

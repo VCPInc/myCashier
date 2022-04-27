@@ -1,6 +1,6 @@
-LNAME = 'Chinese'		#language name
-TRANSLATOR = 'Chak Wang'
-CONTACT_INFO = "replit.com/@ChakWang"
+ LNAME = '中文'		#language name
+TRANSLATOR = '请填你的名字'
+CONTACT_INFO = "一些联系链接"
 
 
 #main menu
@@ -9,80 +9,74 @@ START_BTN = '开始'
 PRINT_BTN = '打印'
 SETTINGS_BTN = '设置'
 QUIT_BTN = '退出'
-INCOMPLETE_MSG = '今天的工作还没做完'
-COMPLETE_MSG = '今天的工作完成了'
-QUIT_TITLE = ''
-QUIT_MESSAGE = '你确定要停止吗?'
-FILENOTFOUND_TITLE = 'error'
-PRINTERROR_TITLE = 'error'
-FILENOTFOUND_MESSAGE = 'no file found for today'
-PRINTERROR_MESSAGE = 'there was an error printing the file'
-WINDOW_RELOAD_MSG = ""
+INCOMPLETE_MSG = "今天的工作没完成"
+COMPLETE_MSG = "今天的工作完成了"
+QUIT_TITLE = '退出'
+QUIT_MESSAGE = '你确定你要退出?'
+FILENOTFOUND_TITLE = '错误'
+PRINTERROR_TITLE = '错误'
+FILENOTFOUND_MESSAGE = '今天的文件不存在'
+PRINTERROR_MESSAGE = '打印过程中出现了错误'
+WINDOW_RELOAD_MSG = "程序正在刷新中"
 
-MENU_CREDITS = 'credits'
+MENU_CREDITS = '主页点数'
 VCPINC_NAME = 'VCP Inc.'
 NAME_NOOR = 'Bhavnoor Saroya'
 NAME_ANTONIO = 'Antonio Guido Leoni'
 NAME_SAM = 'Sam Wiebe'
-NAME_RICK = 'Surprise!'
-ABOUT_DEVS = 'About the devs'
-ABOUT_DEVS_MSG = 'About us:\nAt the time of writing we are a group of grade 12 high school students, this program is written as challenge/project for our programming class. \n If you find a bug feel free to let us know through the bug report option in the help menu.\nWarm Regards from the year 2021.'
-ABOUT_VCP = 'About VCP Inc.'
-ABOUT_VCPINC_MSG = 'VCP inc. stands for "Very Cool Programmers inc.", which we strive to be. All work done under the VCP inc umbrella is proprietary and confidential unless specified otherwise, re-distribution of this program without written permission from the developers is forbidden.\nAt VCP inc we strive to uphold the principles of honesty, clarity, and humor, for this reason it should be noted that no animals were directly harmed in the making of this program, the same cannot be said for the sanity of the developers.\n © 2021 VCP inc.'
-TRANSLATORS = 'Translators'
-OTHER_THANKS = "Special thanks"
+NAME_RICK = '惊喜!'
+ABOUT_DEVS = '关于管理人员信息'
+ABOUT_DEVS_MSG = '关于我们:\n在我们写这个的时候是12年级的高中生, 这个是班级挑战的程序代码. \n 如果发现了什么程序漏洞，欢迎来’报错‘处报错.\n来自2021的高中生们.'
+ABOUT_VCP = '关于 VCP Inc.'
+ABOUT_VCPINC_MSG = 'VCP inc. 代表的是非常酷的编程员们.", 的确我们就是. 所有的工作都会以 VCP inc 的工作人员以最快和准确的速度完成, 如果想要更改程序用于别的用途，请联系工作人员们.\n在 VCP inc 我们有着最高的诚信与幽默感, 出于以上原因，做这个程序时没有任何人与动物有被伤害到, 所有的管理人员都符合以上条件.\n © 2021 VCP inc.'
+TRANSLATORS = '翻译者们'
+OTHER_THANKS = "特别感谢"
 
-MENU_HELP = 'help'
-HELP_GUIDE = '程序说明'
-HELP_BUG = '反馈问题'
-BUGREPORT_MSG = 'Thank you for taking time out to report a bug, this program comes included with lifetime warranty, any issues you encounter should be emailed to the developers. We thank you for your patience. We hope we can have them resolved quickly.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
+MENU_HELP = '帮助'
+HELP_GUIDE = '用户指南'
+HELP_BUG = '报错'
+BUGREPORT_MSG = '感谢你花时间给我们报错, 这个程序有着永久的保修装置,任何的错误都可以报给管理人员们. 我们感谢你的耐心等待. 我们会以最快的速度完成这次报错.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
 
-LANGUAGE_TXT = '选择语言'
+LANGUAGE_TXT = '选择一个语言'
 
 
 #settings
 SETTINGS_TITLE = '设置'
-SETTINGS_MENU_TITLE = '设置'
-SETTINGS_FLOAT = 'Cash float ($)'
-SETTINGS_STORETIME = 'Time to store files (days)'
-SETTINGS_PATH = 'Save path'
-SETTINGS_PATH_BROWSE = 'Browse...'
-SETTINGS_THEME = 'Applcation Theme'
-SETTINGS_UNIT_TEMPERATURE = 'Temperature Units'
-#THEME_DEFAULT = '基础背景'
-#THEME_BAD = '傻子背景'
-#THEME_TEST = '测试背景'
-#THEME_NOOR = 'Noor 背景'
-#THEME_GOOD = '黑夜背景'
-#THEME_HAKD = 'Hacker Theme'
+SETTINGS_MENU_TITLE = '设置菜单'
+SETTINGS_FLOAT = '金额流水 ($)'
+SETTINGS_STORETIME = '是时候保存文件了 (天数)'
+SETTINGS_PATH = '设置时间'
+SETTINGS_PATH_BROWSE = '打开中...'
+SETTINGS_THEME = '程序背景'
+SETTINGS_UNIT_TEMPERATURE = '天气的单位'
 SETTINGS_SAVE = '保存设置'
-SETTINGS_QUIT = '返回'
+SETTINGS_QUIT = '回到上一个界面'
 SETTINGS_RESET = '重置设置'
-SETTINGS_RESET_MSG = '请再次确定你要重置设置?'
-SETTINGS_SUCCESS = '保存好了!'
+SETTINGS_RESET_MSG = '你确定你要重置所有设置?'
+SETTINGS_SUCCESS = '全部保存了!'
 
 
 #registers
-REG_FLOAT = "float: $"
-REG_TITLE = '注册'
-REG_ACT = '工作'
-REG_NAME = '注册'
-REG_PCARDS = '午饭卡片的总数'
-REG_PP_A = '总数'
-REG_PP_B = '总数'
-REG_PP_C = '总数'
-REG_TILL = 'Till reading'
-REG_VOUCHERS = 'Vouchers number'
-REG_ROLLS = 'Rolls'
+REG_FLOAT = "登记: $"
+REG_TITLE = '登记记录'
+REG_ACT = '工作中'
+REG_NAME = '登记记录'
+REG_PCARDS = '代金劵总数'
+REG_PP_A = '总和'
+REG_PP_B = '总和'
+REG_PP_C = '总和'
+REG_TILL = '系统显示数目'
+REG_VOUCHERS = '登记者号码'
+REG_ROLLS = '行数'
 REG_SAVE = '保存'
-REG_BACK = '返回'
-REG_QUIT = '请再次确定需要退出，没保存的东西将会消失'
-REG_CRASH = "An error occurred loading the menu. It's recommended to reload the application. If the problem persists, please contact us through the \"bug report\" option and send us the file called \"error.log\"."
-REG_SAVE_ERROR = "An error occurred while saving the file. If the problem persists, try changing the save path through the settings menu."
-REG_TOTAL_TITLE = "total for register"	#this is followed by the name of the register (ex: "total for register A")
-REG_TOT_UPDATE = "update totals"
+REG_BACK = '回到上一个页面'
+REG_QUIT = '你确定你要退出? 没保存的东西会全部清除.'
+REG_CRASH = '加载的时候出现了错误. 系统建议重新刷新程序. 如果问题还是存在, 请在 "报错" 按钮选项发送 "error.log".'
+REG_SAVE_ERROR = "保存的时候出现了问题. 如果问题还是存在, 尝试改变存储文件的形式."
+REG_TOTAL_TITLE = "登记总数"	#this is followed by the name of the register (ex: "total for register A")
+REG_TOT_UPDATE = "全部的更新"
 
-PP_TIT = '午饭卡片'		#title for ppcalc window
-PP_ADD_BTN = '加新的午饭卡片'
+PP_TIT = '代金券'		#title for ppcalc window
+PP_ADD_BTN = '增加'		#means add to the total
 PP_DONE_BTN = '完成'
 PP_EXIT_BTN = '取消'

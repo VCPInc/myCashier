@@ -5,20 +5,13 @@ from tkinter import filedialog as fd
 #from * import *
 import os
 from languagemanager import lm, ApplyLanguage
+from theme import THEMES
 
 
 
 
 
-
-themelist = [#um why????
-	'Default Theme',
-#	"null",		#no, i won't write "None" ffs
-#	'null',
-#	'Noor Theme',
-	"Dark Theme",
-	"Hacker Theme"
-]
+themelist = list(theme.name for theme in THEMES)
 
 def OpenMainMenu(window, frame):
 	from mainmenu import mainmain
@@ -269,5 +262,4 @@ def ApplyTheme(window, frame):
 	at(theme, window, frame)
 
 def GetCurrentTheme():
-	from theme import THEMES as themes
-	return themes[GetSetting("theme")]
+	return THEMES[GetSetting("theme")]

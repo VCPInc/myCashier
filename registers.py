@@ -45,7 +45,8 @@ def ValidateInput():
 	for fields in coinsfields + notesfields:
 		for field in fields:
 			try:
-				int(field.get())
+				if field.get() != "":
+					int(field.get())
 				field["bg"] = correctBG  #if everything went correctly set the colour to white
 			except ValueError:
 				field["bg"] = incorrectBG    #if the input was not valid (ValueError) set it to red
@@ -56,7 +57,9 @@ def ValidateInput():
 		try:
 			#checks two things: if it is a float and if it has less than or equal to two decimal places
 			#if either of the checks fail we have a bad input
-			if NumberHasDecimalPlaces(float(pcardsfield.get()), 2) is not True: raise 69
+			if pcardsfield.get() != "":
+				if NumberHasDecimalPlaces(float(pcardsfield.get()), 2) is not True:
+					raise 69
 			pcardsfield["bg"] = correctBG
 		except:
 			flag = False
@@ -65,7 +68,9 @@ def ValidateInput():
 	
 	for tillreadfield in tillreadfields:
 		try:
-			if NumberHasDecimalPlaces(float(tillreadfield.get()), 2) is not True: raise 69
+			if tillreadfield.get() != "":
+				if NumberHasDecimalPlaces(float(tillreadfield.get()), 2) is not True:
+					raise 69
 			tillreadfield["bg"] = correctBG
 		except:
 			flag = False
@@ -74,7 +79,8 @@ def ValidateInput():
 	
 	for vouchersfield in vouchersfields:
 		try:
-			int(vouchersfield.get())
+			if vouchersfield.get() != "":
+				int(vouchersfield.get())
 			vouchersfield["bg"] = correctBG
 		except:
 			flag = False
@@ -83,7 +89,8 @@ def ValidateInput():
 
 	for rollsfield in rollsfields:
 		try:
-			int(rollsfield.get())
+			if rollsfield.get() != "":
+				int(rollsfield.get())
 			rollsfield["bg"] = correctBG
 		except:
 			flag = False
@@ -136,23 +143,28 @@ def Finish():
 
 
 			for i in range(len(coinsfields[Register])):
-				ss[regCol + str(6 + i)]  = int(coinsfields[Register][i].get())
+				ss[regCol + str(6 + i)]  = int(
+					coinsfields[Register][i].get() if coinsfields[Register][i].get() != "" else 0
+				)
 			for i in range(len(notesfields[Register])):
-				ss[regCol + str(13 + i)] = int(notesfields[Register][i].get())
+				nfg = notesfields[Register][i].get()
+				ss[regCol + str(13 + i)] = int(
+					nfg if nfg != "" else 0
+				)
 			
 			#some items are in the second column, so do this
 			regCol = chr(ord(regCol) + 1)
 
-			ss[regCol + "24"] = round(float(pcardsfields[Register].get()), 2)
-			ss[regCol + "26"] = round(float(tillreadfields[Register].get()), 2)
+			ss[regCol + "24"] = round(float(pcardsfields[Register].get()), 2) if pcardsfields[Register].get() != "" else 0.00
+			ss[regCol + "26"] = round(float(tillreadfields[Register].get()), 2) if tillreadfields[Register].get() != "" else 0.00
 
-			ss[regCol + "12"] = int(rollsfields[Register].get())
-			ss["B" + str(33 + Register)] = int(vouchersfields[Register].get())
+			ss[regCol + "12"] = int(rollsfields[Register].get()) if rollsfields[Register].get() != "" else 0
+			ss["B" + str(33 + Register)] = int(vouchersfields[Register].get()) if vouchersfields[Register].get() != "" else 0
 		#END FOR
 		
 		wb.save(fname)
 	except Exception as e:
-		print(e)
+		raise(e)
 		rnuo.showerror(message=lm.GetVar("REG_SAVE_ERROR"))
 		return 0
 	
@@ -232,24 +244,28 @@ def UpdateTotals():
 	#because i don't want to make things too complicated, this updates every total, every time a change is made
 	print("updating totals...")
 	global totfields, coinsfields, notesfields		#pp  #vouch   #rolls
-	mults = [ .05, .1, .25, 1, 2, 5, 10, 25, 50 ] + [1] + [5]   + [10]
+	mults = [ .05, .1, .25, 1, 2, 5, 10, 20, 50 ] + [1] + [5]   + [10]
 	for i in [0, 1, 2]:
-		tot = 0
+		tot = 0.0
 		combinedlist = (coinsfields[i] + notesfields[i] + [pcardsfields[i]] + [vouchersfields[i]] + [rollsfields[i]])
 		for fieldaddr in range(len(combinedlist)):
 			singlefield = combinedlist[fieldaddr]
 			try:
-				delta = round((float(singlefield.get()) * mults[fieldaddr]), 2)
-				tot += delta	#we try adding to the total
+				#skip empty fields
+				if singlefield.get() != "":
+					delta = round((float(singlefield.get()) * mults[fieldaddr]), 2)
+					tot += delta	#we try adding to the total
 				singlefield["bg"] = correctBG
 			except:		#if it's not a valid value skip it
 				singlefield["bg"] = incorrectBG
 		#when we reach this we're done calculating the total for each register
 		#so we just set the total
+		print(float(tot))
 		if NumberHasDecimalPlaces(tot, 1):
 			tot = str(tot) + "0"
 		else:
 			tot = str(tot)
+		print(tot)
 		tot = tot[:tot.index(".") + 3]
 		totfields[i]["state"] = "normal"
 		totfields[i].delete("0", "end")
@@ -318,7 +334,7 @@ def registersmain(window, frame):
 		
 		tk.Label(frame, text="$5") .grid(row=ROLLSOFFSET+1,column=COLUMN)
 		tk.Label(frame, text="$10").grid(row=ROLLSOFFSET+2,column=COLUMN)
-		tk.Label(frame, text="$25").grid(row=ROLLSOFFSET+3,column=COLUMN)
+		tk.Label(frame, text="$20").grid(row=ROLLSOFFSET+3,column=COLUMN)
 		tk.Label(frame, text="$50").grid(row=ROLLSOFFSET+4,column=COLUMN)
 
 		tk.Label(frame, text="REG_PCARDS").grid(row=THIRDOFFSET+0, column=COLUMN)
@@ -369,11 +385,14 @@ def registersmain(window, frame):
 					#if there is no file, the default text is 0.
 					#if there is a file but it has nothing in it, the default text is 0.
 					#in all other cases, default text is what you see in the file
-						"0" if wb is None
+						""  if wb is None
 							else int(wb[fstCol + str(5 + i)].value or 0)
 					)
+					print("this:", temp.get())
+				#	if int(temp.get()) == 0:
+				#		temp.delete("0", "end");
 				except Exception as e:
-					print(e)
+					print (e)
 					temp.insert("end", "") #this is triggered for example if text data is found
 					#the only way this could happen is if they change the file manually, which should not happen, but this way we avoid unnecessary exceptions
 				#once we're done with all the operations add to the list
@@ -384,9 +403,11 @@ def registersmain(window, frame):
 				temp.grid(column=col, row=ROLLSOFFSET + i)
 				try:
 					temp.insert("end",
-						"0" if wb is None
+						""  if wb is None
 							else int(wb[fstCol + str(12 + i)].value or 0)
 					)
+				#	if int(temp.get()) == 0:
+				#		temp.delete("0", "end");
 				except Exception as e:
 					print(e)
 					temp.insert("end", "")
@@ -397,43 +418,51 @@ def registersmain(window, frame):
 			pcardsfields[-1].grid(row=THIRDOFFSET+0, column=col)
 			try:
 				pcardsfields[-1].insert("end",
-					"0.0" if wb is None
+					""  if wb is None
 						else round(
 							float(wb[secCol + "24"].value or "0"),  #if the value is none set to 0
-							2) #round to 2 decimals
+							2 #round to 2 decimals
+						)
 				)
 				print(pcardsfields[-1].get())
 				#to make it look better money will always have two decimal places
 				#floats ave always at least one decimal places when printed, so we only need to check this
-				if NumberHasDecimalPlaces(float(pcardsfields[-1].get()), 1): pcardsfields[-1].insert("end", "0")
+				if wb is not None and NumberHasDecimalPlaces(float(pcardsfields[-1].get()), 1):
+					pcardsfields[-1].insert("end", "0")
+				#if float(pcardsfields[-1].get()) == .0:
+				#	pcardsfields[-1].delete("0", "end");
 			except Exception as e:
 				print(e)
-				tillreadfields[-1].delete("0", "end")
-				pcardsfields[-1].insert("end", "0.00")
+				pcardsfields[-1].delete("0", "end")
+				#pcardsfields[-1].insert("end", "0.00")
 
 			tillreadfields.append(tk.Entry(frame, width=7))
 			tillreadfields[-1].grid(row=THIRDOFFSET+1, column=col)
 			try:
 				tillreadfields[-1].insert("end",
-					"0.0" if wb is None
+					""  if wb is None
 						else round(
 							float(wb[secCol + "26"].value or 0),  #if the value is none set to 0
 							2) #round to 2 decimals
 				)
-				if NumberHasDecimalPlaces(float(tillreadfields[-1].get()), 1): tillreadfields[-1].insert("end", "0")
+				if wb is not None and NumberHasDecimalPlaces(float(tillreadfields[-1].get()), 1): tillreadfields[-1].insert("end", "0")
+				#if float(tillreadfields[-1].get()) == .0:
+				#	tillreadfields[-1].delete("0", "end");
 			except Exception as e:
 				print(e)
 				tillreadfields[-1].delete("0", "end")
-				tillreadfields[-1].insert("end", "0.00")
+				#tillreadfields[-1].insert("end", "0.00")
 			
 			vouchersfields.append(tk.Entry(frame, width=7))
 			vouchersfields[-1].grid(row=THIRDOFFSET+2, column=col)
 			try:
 				vouchersfields[-1].insert("end",
-					"0" if wb is None
+					""  if wb is None
 						else wb["B" + str(33 + CurrentRegister)].value or 0  #if the value is none set to 0
 				)
 				print("vouchers: " + vouchersfields[-1].get())
+				#if int(vouchersfields[-1].get()) == 0:
+				#	vouchersfields[-1].delete("0", "end");
 			except Exception as e:
 				print(e)
 				vouchersfields[-1].insert("end", "0")
@@ -442,10 +471,12 @@ def registersmain(window, frame):
 			rollsfields[-1].grid(row=THIRDOFFSET+3, column=col)
 			try:
 				rollsfields[-1].insert("end",
-					"0" if wb is None
+					""  if wb is None
 						else wb[secCol + "12"].value or 0  #if the value is none set to 0
 				)
 				print("vouchers: " + rollsfields[-1].get())
+				#if int(rollsfields[-1].get()) == 0:
+				#	rollsfields[-1].delete("0", "end");
 			except Exception as e:
 				print(e)
 				rollsfields[-1].insert("end", "0")
