@@ -1,5 +1,10 @@
+#python things
 __pycache__/
-errors.log
-build/
+
+#data 'n' stuff
 files/
+errors.log
 settings.xlsx
+
+#build things
+myCashier.exe
