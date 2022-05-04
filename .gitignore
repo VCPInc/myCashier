@@ -8,3 +8,4 @@ settings.xlsx
 
 #build things
 myCashier.exe
+build/
