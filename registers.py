@@ -242,7 +242,7 @@ def UpdateTotals():
 	correctBG = theme.EntryFieldTheming.background
 
 	#total cash deposit
-	tbd = 0
+	tbd = 0.0
 	#because i don't want to make things too complicated, this updates every total, every time a change is made
 	global totfields, coinsfields, notesfields     #rolls
 	mults = [ .05, .1, .25, 1, 2, 5, 10, 20, 50 ] + [10]
@@ -278,7 +278,7 @@ def UpdateTotals():
 	#total bank deposit
 	totfields[3]["state"] = "normal"
 	totfields[3].delete("0", "end")
-	totfields[3].insert("0", str(float(tbd)) + "0" if NumberHasDecimalPlaces(tbd, 1) else "")
+	totfields[3].insert("0", (str(float(tbd)) + ("0" if NumberHasDecimalPlaces(tbd, 1) else "")))
 	totfields[3]["state"] = "disabled"
 	#punch cards total
 	pcardstot = 0
@@ -293,7 +293,7 @@ def UpdateTotals():
 				x["bg"] = incorrectBG
 	totfields[4]["state"] = "normal"
 	totfields[4].delete("0", "end")
-	totfields[4].insert("0", (str(float(pcardstot)) + "0" if NumberHasDecimalPlaces(pcardstot, 1) else ""))
+	totfields[4].insert("0", (str(float(pcardstot)) + ("0" if NumberHasDecimalPlaces(pcardstot, 1) else "")))
 	totfields[4]["state"] = "disabled"
 	#vouchers tot
 	voucherstot = 0
@@ -308,13 +308,13 @@ def UpdateTotals():
 				x["bg"] = incorrectBG
 	totfields[5]["state"] = "normal"
 	totfields[5].delete("0", "end")
-	totfields[5].insert("0", (str(float(voucherstot)) + "0" if NumberHasDecimalPlaces(voucherstot, 1) else ""))
+	totfields[5].insert("0", (str(float(voucherstot)) + ("0" if NumberHasDecimalPlaces(voucherstot, 1) else "")))
 	totfields[5]["state"] = "disabled"
 	#grand tot
 	grandtot = voucherstot + pcardstot + tbd
 	totfields[6]["state"] = "normal"
 	totfields[6].delete("0", "end")
-	totfields[6].insert("0", (str(float(grandtot)) + "0" if NumberHasDecimalPlaces(grandtot, 1) else ""))
+	totfields[6].insert("0", (str(float(grandtot)) + ("0" if NumberHasDecimalPlaces(grandtot, 1) else "")))
 	totfields[6]["state"] = "disabled"
 #END FUNC
 
@@ -638,9 +638,9 @@ def registersmain(window, frame):
 		mainmenu.mainmain(window, frame)
 
 	while "yes":
-		try:
-			UpdateTotals()
-		except:
-			"this is why we can't have nice things"
+		# try:
+		UpdateTotals()
+		# except:
+			# "this is why we can't have nice things"
 		window.update()
 			
