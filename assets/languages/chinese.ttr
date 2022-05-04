@@ -1,6 +1,7 @@
- LNAME = '中文'		#language name
-TRANSLATOR = '请填你的名字'
-CONTACT_INFO = "一些联系链接"
+LANGUAGE_NAME = '中文'		#language name
+TRANSLATOR = 'Chak Wang (王泽辉)'
+CONTACT_INFO = ""
+LANGUAGE_CODE = "zh-CN"
 
 
 #main menu
@@ -74,7 +75,10 @@ REG_QUIT = '你确定你要退出? 没保存的东西会全部清除.'
 REG_CRASH = '加载的时候出现了错误. 系统建议重新刷新程序. 如果问题还是存在, 请在 "报错" 按钮选项发送 "error.log".'
 REG_SAVE_ERROR = "保存的时候出现了问题. 如果问题还是存在, 尝试改变存储文件的形式."
 REG_TOTAL_TITLE = "登记总数"	#this is followed by the name of the register (ex: "total for register A")
-REG_TOT_UPDATE = "全部的更新"
+REG_TOTAL_DEPOSIT = "total bank deposit"
+REG_TOTAL_PUNCH = "Punch cards total"
+REG_TOTAL_VOUCHER = "Vouchers total"
+REG_TOTAL_GRAND = "Grand total"
 
 PP_TIT = '代金券'		#title for ppcalc window
 PP_ADD_BTN = '增加'		#means add to the total

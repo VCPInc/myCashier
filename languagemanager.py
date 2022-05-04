@@ -7,6 +7,10 @@ FILE_EXT = ".ttr"
 
 class langmanager:
 
+	LANGUAGE_NAME: str = None
+	TRANSLATOR: str = None
+	LANGUAGE_CODE: str = None
+
 	def __init__(self, lang = "english"):
 		self.loadlang(lang)
 	def loadlang(self, lang, skipBadLines=True):

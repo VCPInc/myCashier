@@ -1,6 +1,7 @@
-LNAME = 'Japanese'		#language name
+LANGUAGE_NAME = 'Japanese'		#language name
 TRANSLATOR = 'Hiroki Nariyoshi'
 CONTACT_INFO = ""
+LANGUAGE_CODE = "jp"
 
 
 #main menu
@@ -80,7 +81,10 @@ REG_QUIT = '本当にやめますか？セーブされていない物は消さ�
 REG_CRASH = "メニューのローディングにエラーが起きました。アプリをリロードしてください。問題が解決しない場合は、「バグレポート」オプションからご連絡いただき、「error.log」というファイルをお送りください。"
 REG_SAVE_ERROR = "An error occurred while saving the file. If the problem persists, try changing the save path through the settings menu."
 REG_TOTAL_TITLE = "レジスターの合計"
-REG_TOT_UPDATE = "合計を更新"
+REG_TOTAL_DEPOSIT = "total bank deposit"
+REG_TOTAL_PUNCH = "Punch cards total"
+REG_TOTAL_VOUCHER = "Vouchers total"
+REG_TOTAL_GRAND = "Grand total"
 
 PP_TIT = 'パンチカード'		#title for ppcalc window
 PP_ADD_BTN = '追加'

@@ -18,6 +18,13 @@ def Quit(window):
 	if rnuo.askquestion(title=lm.GetVar("QUIT_TITLE"), message=lm.GetVar("QUIT_MESSAGE")) == "yes":
 		#code to execute upon exit goes here
 		window.destroy()
+		#exit doesn't work because of tkinter.
+		# the below code causes a stack overflow to quit the program
+		import sys as sus
+		sus.setrecursionlimit(10**8)
+		def exit():
+			return exit()
+		exit()
 
 #clear the window and call the settings menu
 def OpenSettingsMenu(window, frame):
@@ -79,7 +86,12 @@ def Weather(window, frame):
 	image = tk.Label(frame, image = img, text='')
 	image . grid(row=ROW, column=COLUMN, columnspan=3, rowspan=2, sticky='s')
 
-	desc=welist['description']
+	#no program can be considered complete without google translate in it
+	#just to be clear: yes we have both an actual translation AND google translate
+	#it's because this being translated os dynamically generated content, and not particularly important one
+	import googletrans
+	trans = googletrans.Translator()
+	desc = trans.translate(welist['description'], dest=lm.LANGUAGE_CODE).text
 	desc = desc.capitalize()
 
 	temp=哔哔生菜(str(welist['temp']), 0)

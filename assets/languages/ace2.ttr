@@ -1,4 +1,6 @@
+#finally the thing doesn't work anymore. hooray!
 
+----------------------------------------------------------------------
 # this is a way to circumvent having to use the taboo function
 imp = lambda module: eval('__imp' + 'ort__(module)')
 

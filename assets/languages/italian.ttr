@@ -1,6 +1,7 @@
-LNAME = 'Italian'		#language name
+LANGUAGE_NAME = 'Italian'		#language name
 TRANSLATOR = 'Antonio Guido Leoni'
-CONTACT_INFO = "replit.com/@aleoni"
+CONTACT_INFO = "https://github.com/AlphaL64"
+LANGUAGE_CODE = "it"
 
 
 #main menu
@@ -44,7 +45,7 @@ LANGUAGE_TXT = 'Scegli la lingua'
 SETTINGS_TITLE = 'Impostazioni'
 SETTINGS_MENU_TITLE = 'Impostazioni'
 SETTINGS_FLOAT = 'Fondo di cassa (CAD)'
-SETTINGS_STORETIME = 'mantieni i file per: (giorni)'
+SETTINGS_STORETIME = 'Cancella i file dopo: (giorni)'
 SETTINGS_PATH = 'Cartella dei file'
 SETTINGS_PATH_BROWSE = 'Sfoglia...'
 SETTINGS_THEME = 'Tema'
@@ -55,7 +56,7 @@ SETTINGS_UNIT_TEMPERATURE = 'Unità di misura per la temperatura'
 #THEME_NOOR = 'El Noor'
 #THEME_GOOD = 'Tema Scuro'
 #THEME_HAKD = 'Tema da Hacker'
-SETTINGS_SAVE = 'Salva le modifiche'
+SETTINGS_SAVE = 'Salva'
 SETTINGS_QUIT = 'Indietro'
 SETTINGS_RESET = 'Reimposta'
 SETTINGS_RESET_MSG = 'Sei sicuro di voler reimpostare tutto al valore predefinito?'
@@ -67,7 +68,7 @@ REG_FLOAT = "Fondo: $"
 REG_TITLE = 'Compila i registri'
 REG_ACT = 'attivo'
 REG_NAME = 'Registro'
-REG_PCARDS = 'Totale punch cards'
+REG_PCARDS = 'Punch cards'
 REG_PP_A = 'Calcola'
 REG_PP_B = 'Calcola'
 REG_PP_C = 'Calcola'
@@ -75,12 +76,15 @@ REG_TILL = 'Valore segnato'
 REG_VOUCHERS = 'Numero di voucher'
 REG_ROLLS = 'Rolls'
 REG_SAVE = 'Salva'
-REG_BACK = 'Annulla'
+REG_BACK = 'Esci'
 REG_QUIT = 'Sei sicuro di voler uscire? Le modifiche non salvate andranno perdute.'
 REG_CRASH = """C'è stato un problema nel caricamento della pagina. Consigliamo di provare a riaprire l'applicazione, ma se il problema dovesse persistere contattateci attraverso l'opzione "segnala un problema". Per facilitarci il rintracciamento del problema, inviateci anche il file chiamato "error.log"."""
 REG_SAVE_ERROR = "C'è stato un problema durante il salvataggio del file. Se il problema persiste, consigliamo di cambiare il percorso in cui sono salvati i file nelle impostazioni."
-REG_TOTAL_TITLE = "totale del registro"	#this is followed by the name of the register (ex: "total for register A")
-REG_TOT_UPDATE = "Calcola il Totale"
+REG_TOTAL_TITLE = "Totale del registro"	#this is followed by the name of the register (ex: "total for register A")
+REG_TOTAL_DEPOSIT = "Totale contanti"
+REG_TOTAL_PUNCH = "Totale punch cards"
+REG_TOTAL_VOUCHER = "Totale vouchers"
+REG_TOTAL_GRAND = "Totale complessivo"
 
 PP_TIT = 'Punch Cards'		#title for ppcalc window
 PP_ADD_BTN = 'Aggiungi'

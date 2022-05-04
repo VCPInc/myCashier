@@ -241,36 +241,81 @@ def UpdateTotals():
 	incorrectBG = theme.EntryFieldTheming.incorrectBg
 	correctBG = theme.EntryFieldTheming.background
 
+	#total cash deposit
+	tbd = 0
 	#because i don't want to make things too complicated, this updates every total, every time a change is made
-	print("updating totals...")
-	global totfields, coinsfields, notesfields		#pp  #vouch   #rolls
-	mults = [ .05, .1, .25, 1, 2, 5, 10, 20, 50 ] + [1] + [5]   + [10]
+	global totfields, coinsfields, notesfields     #rolls
+	mults = [ .05, .1, .25, 1, 2, 5, 10, 20, 50 ] + [10]
 	for i in [0, 1, 2]:
 		tot = 0.0
-		combinedlist = (coinsfields[i] + notesfields[i] + [pcardsfields[i]] + [vouchersfields[i]] + [rollsfields[i]])
+		combinedlist = (coinsfields[i] + notesfields[i] + [rollsfields[i]])
 		for fieldaddr in range(len(combinedlist)):
 			singlefield = combinedlist[fieldaddr]
 			try:
 				#skip empty fields
-				if singlefield.get() != "":
-					delta = round((float(singlefield.get()) * mults[fieldaddr]), 2)
-					tot += delta	#we try adding to the total
+				if singlefield.get() not in ["inf", "nan", "-inf", "-nan"]:
+					if singlefield.get() != "":
+						delta = round((float(singlefield.get()) * mults[fieldaddr]), 2)
+						tot += delta	#we try adding to the total
+				else:
+					int("parry this you fucking casual")
 				singlefield["bg"] = correctBG
 			except:		#if it's not a valid value skip it
 				singlefield["bg"] = incorrectBG
 		#when we reach this we're done calculating the total for each register
 		#so we just set the total
-		print(float(tot))
+		tot -= settings.GetSetting("float")
+		tbd += tot
 		if NumberHasDecimalPlaces(tot, 1):
 			tot = str(tot) + "0"
 		else:
 			tot = str(tot)
-		print(tot)
 		tot = tot[:tot.index(".") + 3]
 		totfields[i]["state"] = "normal"
 		totfields[i].delete("0", "end")
 		totfields[i].insert("0", (tot))
 		totfields[i]["state"] = "disabled"
+	#total bank deposit
+	totfields[3]["state"] = "normal"
+	totfields[3].delete("0", "end")
+	totfields[3].insert("0", str(float(tbd)) + "0" if NumberHasDecimalPlaces(tbd, 1) else "")
+	totfields[3]["state"] = "disabled"
+	#punch cards total
+	pcardstot = 0
+	for x in pcardsfields:
+		if x.get() != "":
+			try:
+				if x.get in ["inf", "nan", "-inf", "-nan"]:
+					raise float("inf")
+				pcardstot += float(x.get())
+				x["bg"] = correctBG
+			except:
+				x["bg"] = incorrectBG
+	totfields[4]["state"] = "normal"
+	totfields[4].delete("0", "end")
+	totfields[4].insert("0", (str(float(pcardstot)) + "0" if NumberHasDecimalPlaces(pcardstot, 1) else ""))
+	totfields[4]["state"] = "disabled"
+	#vouchers tot
+	voucherstot = 0
+	for x in vouchersfields:
+		if x.get() != "":
+			try:
+				if x.get in ["inf", "nan", "-inf", "-nan"]:
+					raise float("inf")
+				voucherstot += 5.0 * float(x.get())
+				x["bg"] = correctBG
+			except:
+				x["bg"] = incorrectBG
+	totfields[5]["state"] = "normal"
+	totfields[5].delete("0", "end")
+	totfields[5].insert("0", (str(float(voucherstot)) + "0" if NumberHasDecimalPlaces(voucherstot, 1) else ""))
+	totfields[5]["state"] = "disabled"
+	#grand tot
+	grandtot = voucherstot + pcardstot + tbd
+	totfields[6]["state"] = "normal"
+	totfields[6].delete("0", "end")
+	totfields[6].insert("0", (str(float(grandtot)) + "0" if NumberHasDecimalPlaces(grandtot, 1) else ""))
+	totfields[6]["state"] = "disabled"
 #END FUNC
 
 
@@ -323,7 +368,7 @@ def registersmain(window, frame):
 
 		COINSOFFSET = 5
 		ROLLSOFFSET = COINSOFFSET + 5
-		THIRDOFFSET = ROLLSOFFSET + 9
+		THIRDOFFSET = ROLLSOFFSET + 11
 		COLUMN = 2
 
 		tk.Label(frame, text="$0.05") .grid(row=COINSOFFSET+1,column=COLUMN)
@@ -337,11 +382,11 @@ def registersmain(window, frame):
 		tk.Label(frame, text="$20").grid(row=ROLLSOFFSET+3,column=COLUMN)
 		tk.Label(frame, text="$50").grid(row=ROLLSOFFSET+4,column=COLUMN)
 
-		tk.Label(frame, text="REG_PCARDS").grid(row=THIRDOFFSET+0, column=COLUMN)
+		tk.Label(frame, text="REG_PCARDS").grid(row=THIRDOFFSET+0, column=COLUMN)#//////
 		tk.Label(frame, text="REG_TILL").grid(row=THIRDOFFSET+1, column=COLUMN)
-		tk.Label(frame, text="REG_VOUCHERS").grid(row=THIRDOFFSET+2, column=COLUMN)
+		tk.Label(frame, text="REG_VOUCHERS").grid(row=THIRDOFFSET+3, column=COLUMN)#/////
 
-		tk.Label(frame, text="REG_ROLLS").grid(row=THIRDOFFSET+3, column=COLUMN)
+		tk.Label(frame, text="REG_ROLLS").grid(row=THIRDOFFSET+2, column=COLUMN)
 
 		try:
 			wb = load_workbook(filename = filemanager.GetTodaysFileWithPath()).active
@@ -377,7 +422,7 @@ def registersmain(window, frame):
 			
 			print("placing text fields...")
 			for i in range(1, 6):  #(A/E/I)6-10
-				temp = tk.Entry(frame, width=7)#, validate="focus", validatecommand=UpdateTotals)
+				temp = tk.Entry(frame, width=7)
 				temp.grid(column=col, row=COINSOFFSET + i)
 				try:
 					temp.insert("end",
@@ -399,7 +444,7 @@ def registersmain(window, frame):
 				coinsfields[CurrentRegister].append(temp)
 			#END FOR
 			for i in range(1, 5):  #(A/E/I)13-16
-				temp = tk.Entry(frame, width=7)#, validate="focus", validatecommand=UpdateTotals)
+				temp = tk.Entry(frame, width=7)
 				temp.grid(column=col, row=ROLLSOFFSET + i)
 				try:
 					temp.insert("end",
@@ -454,7 +499,7 @@ def registersmain(window, frame):
 				#tillreadfields[-1].insert("end", "0.00")
 			
 			vouchersfields.append(tk.Entry(frame, width=7))
-			vouchersfields[-1].grid(row=THIRDOFFSET+2, column=col)
+			vouchersfields[-1].grid(row=THIRDOFFSET+3, column=col)
 			try:
 				vouchersfields[-1].insert("end",
 					""  if wb is None
@@ -468,7 +513,7 @@ def registersmain(window, frame):
 				vouchersfields[-1].insert("end", "0")
 
 			rollsfields.append(tk.Entry(frame, width=7))
-			rollsfields[-1].grid(row=THIRDOFFSET+3, column=col)
+			rollsfields[-1].grid(row=THIRDOFFSET+2, column=col)
 			try:
 				rollsfields[-1].insert("end",
 					""  if wb is None
@@ -513,37 +558,63 @@ def registersmain(window, frame):
 
 		print("placing buttons...")
 		#tk.Button(frame, text="save", width=5, command=SaveRegister).grid(row=17,column=1)
-
+		#experimental offset var
+		EX = 1
+		
 		tk.Button(frame, text="REG_BACK", width=5, command=QuitToMainMenu).grid(row=THIRDOFFSET+6,column=COLUMN)
 		tk.Button(frame, text="REG_SAVE", width=5, command=Finish).grid(row=THIRDOFFSET+5,column=COLUMN)
 
 		print("placing totals...")
 		global totfields
 		totfields.clear()	#this way we won't be referencing previously defined labelese
-		tk.Label(frame, text=lm.GetVar("REG_TOTAL_TITLE") + " A").grid(row=7,  column=11)
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_TITLE") + " A").grid(row=5 - EX,  column=11)
 		totfields.append(
 			tk.Entry(frame, width=20, justify="right", state="disabled")
 		)
-		tk.Label(frame, text=lm.GetVar("REG_TOTAL_TITLE") + " B").grid(row=10, column=11)
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_TITLE") + " B").grid(row=8 - EX, column=11)
 		totfields.append(
 			tk.Entry(frame, width=20, justify="right", state="disabled")
 		)
-		tk.Label(frame, text=lm.GetVar("REG_TOTAL_TITLE") + " C").grid(row=13, column=11)
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_TITLE") + " C").grid(row=11 - EX, column=11)
 		totfields.append(
 			tk.Entry(frame, width=20, justify="right", state="disabled")
 		)
-		totfields[0].grid(row=8,  column=11)
-		totfields[1].grid(row=11, column=11)
-		totfields[2].grid(row=14, column=11)
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_DEPOSIT")).grid(row=14 - EX, column=11)
+		totfields.append(
+			tk.Entry(frame, width=20, justify="right", state="disabled")
+		)
+###################
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_PUNCH")).grid(row=THIRDOFFSET-1, column=11)
+		totfields.append(
+			tk.Entry(frame, width=20, justify="right", state="disabled")
+		)
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_VOUCHER")).grid(row=THIRDOFFSET+2, column=11)
+		totfields.append(
+			tk.Entry(frame, width=20, justify="right", state="disabled")
+		)
+		tk.Label(frame, text=lm.GetVar("REG_TOTAL_GRAND")).grid(row=THIRDOFFSET+5, column=11)
+		totfields.append(
+			tk.Entry(frame, width=20, justify="right", state="disabled")
+		)
+		
+#################
+		totfields[0].grid(row=6 - EX,  column=11)
+		totfields[1].grid(row=9 - EX,  column=11)
+		totfields[2].grid(row=12 - EX, column=11)
+		totfields[3].grid(row=15 - EX, column=11)
+		totfields[4].grid(row=THIRDOFFSET+0, column=11)
+		totfields[5].grid(row=THIRDOFFSET+3, column=11)
+		totfields[6].grid(row=THIRDOFFSET+6, column=11)
 
-		tk.Button(frame, text=lm.GetVar("REG_TOT_UPDATE"), command=UpdateTotals).grid(row=THIRDOFFSET-1, column=11)
+		#tk.Button(frame, text=lm.GetVar("REG_TOT_UPDATE"), command=UpdateTotals).grid(row=THIRDOFFSET-1, column=11)
 
 		print("placing the empty labels...")
 		#empty labels for spaces and style
 		tk.Label(frame).grid(row=ROLLSOFFSET-1)
-		tk.Label(frame).grid(row=ROLLSOFFSET+5)
+		tk.Label(frame).grid(row=ROLLSOFFSET+6)
 		tk.Label(frame).grid(row=THIRDOFFSET+3)
 		tk.Label(frame).grid(row=THIRDOFFSET+4)
+		tk.Label(frame).grid(row=ROLLSOFFSET+7)
 		tk.Label(frame, width=5).grid(column=3)
 		tk.Label(frame, width=5).grid(column=10)
 
@@ -553,9 +624,6 @@ def registersmain(window, frame):
 		#used by the update totals function
 		global finishedflag
 		finishedflag = True
-		UpdateTotals()			#this way we can show what the actual totals are
-
-		window.mainloop()
 
 	except Exception as e:
 		import mainmenu
@@ -568,4 +636,11 @@ def registersmain(window, frame):
 		#	os.remove(filemanager.GetTodaysFileWithPath())  #the error was most likely caused by this, so remove it
 		#except: pass
 		mainmenu.mainmain(window, frame)
-		
+
+	while "yes":
+		try:
+			UpdateTotals()
+		except:
+			"this is why we can't have nice things"
+		window.update()
+			

@@ -1,6 +1,7 @@
-LNAME = '��\|�8�&�km�u�ލ�;�a�w�{�ַ;��!f�p�]�۽&�vZiK+mi�-�ҖV�J[ZiG+�h��v�ҎV�J;ZiG+�h�=�ҞV�J{ZiO+�i�=��ҁV:�JZ�@+h��t��ҁV:�JGZ�H+i�#�t�ґV:�JG (simplified)'		#language name
+LANGUAGE_NAME = '��\|�8�&�km�u�ލ�;�a�w�{�ַ;��!f�p�]�۽&�vZiK+mi�-�ҖV�J[ZiG+�h��v�ҎV�J;ZiG+�h�=�ҞV�J{ZiO+�i�=��ҁV:�JZ�@+h��t��ҁV:�JGZ�H+i�#�t�ґV:�JG (simplified)'		#language name
 TRANSLATOR = ''
 CONTACT_INFO = "pray"
+LANGUAGE_CODE = "en"
 
 
 #main menu
@@ -80,7 +81,10 @@ REG_QUIT = '�E�	��\|�8�&�km�u�ލ�;�a�w�{�ַ;��
 REG_CRASH = "a?�^�܇s��c_w3�k�,�|U&W;�ի�D�?5Us�ڹ��ɹ�BK"
 REG_SAVE_ERROR = ";��)�p"
 REG_TOTAL_TITLE = "ƫ�t�i&'�k�hBF�z�@� r"	#this is followed by the name of the register (ex: "total for register A")
-REG_TOT_UPDATE = "�8� �a�w�"
+REG_TOTAL_DEPOSIT = "?PK"
+REG_TOTAL_PUNCH = "�T3�㺭"
+REG_TOTAL_VOUCHER = "xl/_rels/workbook.xml"
+REG_TOTAL_GRAND = "GEp,�L�v�>�ݾ"
 
 PP_TIT = 'pp'		#title for ppcalc window
 PP_ADD_BTN = 'z;Ͼ�Ɵ'

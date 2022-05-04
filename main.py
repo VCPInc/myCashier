@@ -149,7 +149,7 @@ def CreateCreditsMenu():  #credits menu
 		langmang = langmanager(languages[language])
 		#we don't create a window if there's no credits
 		if langmang.GetVar("TRANSLATOR") != "":
-			text = langmang.GetVar("LNAME") + " - " + langmang.GetVar("TRANSLATOR")
+			text = langmang.GetVar("LANGUAGE_NAME") + " - " + langmang.GetVar("TRANSLATOR")
 			_command = lambda:None
 			#command is open the given link
 			if langmang.GetVar("CONTACT_INFO") != "":
