@@ -164,7 +164,6 @@ def Finish():
 		
 		wb.save(fname)
 	except Exception as e:
-		raise(e)
 		rnuo.showerror(message=lm.GetVar("REG_SAVE_ERROR"))
 		return 0
 	
@@ -253,12 +252,9 @@ def UpdateTotals():
 			singlefield = combinedlist[fieldaddr]
 			try:
 				#skip empty fields
-				if singlefield.get() not in ["inf", "nan", "-inf", "-nan"]:
-					if singlefield.get() != "":
-						delta = round((float(singlefield.get()) * mults[fieldaddr]), 2)
-						tot += delta	#we try adding to the total
-				else:
-					int("parry this you fucking casual")
+				if singlefield.get() != "":
+					delta = round((int(singlefield.get()) * mults[fieldaddr]), 2)
+					tot += delta	#we try adding to the total
 				singlefield["bg"] = correctBG
 			except:		#if it's not a valid value skip it
 				singlefield["bg"] = incorrectBG
@@ -278,44 +274,61 @@ def UpdateTotals():
 	#total bank deposit
 	totfields[3]["state"] = "normal"
 	totfields[3].delete("0", "end")
-	totfields[3].insert("0", (str(float(tbd)) + ("0" if NumberHasDecimalPlaces(tbd, 1) else "")))
+	tbdstr = str(float(tbd)) + ("0" if NumberHasDecimalPlaces(tbd, 1) else "")
+	tbdstr = tbdstr[:tbdstr.index(".") + 3]
+	totfields[3].insert("0", tbdstr)
 	totfields[3]["state"] = "disabled"
 	#punch cards total
 	pcardstot = 0
 	for x in pcardsfields:
 		if x.get() != "":
 			try:
-				if x.get in ["inf", "nan", "-inf", "-nan"]:
-					raise float("inf")
+				if x.get() in ["inf", "nan", "-inf", "-nan"]:
+					raise x.get()
+				if NumberHasDecimalPlaces(float(x.get()), 2) is False:
+					int("parry this you fucking casual")
 				pcardstot += float(x.get())
 				x["bg"] = correctBG
 			except:
 				x["bg"] = incorrectBG
 	totfields[4]["state"] = "normal"
 	totfields[4].delete("0", "end")
-	totfields[4].insert("0", (str(float(pcardstot)) + ("0" if NumberHasDecimalPlaces(pcardstot, 1) else "")))
+	pcardstotstr = str(float(pcardstot)) + ("0" if NumberHasDecimalPlaces(pcardstot, 1) else "")
+	pcardstotstr = pcardstotstr[:pcardstotstr.index(".") + 3]
+	totfields[4].insert("0", pcardstotstr)
 	totfields[4]["state"] = "disabled"
 	#vouchers tot
 	voucherstot = 0
 	for x in vouchersfields:
 		if x.get() != "":
 			try:
-				if x.get in ["inf", "nan", "-inf", "-nan"]:
-					raise float("inf")
-				voucherstot += 5.0 * float(x.get())
+				voucherstot += 5 * int(x.get())
 				x["bg"] = correctBG
 			except:
 				x["bg"] = incorrectBG
 	totfields[5]["state"] = "normal"
 	totfields[5].delete("0", "end")
-	totfields[5].insert("0", (str(float(voucherstot)) + ("0" if NumberHasDecimalPlaces(voucherstot, 1) else "")))
+	voucherstotstr = str(float(voucherstot)) + ("0" if NumberHasDecimalPlaces(voucherstot, 1) else "")
+	voucherstotstr = voucherstotstr[:voucherstotstr.index(".") + 3]
+	totfields[5].insert("0", voucherstotstr)
 	totfields[5]["state"] = "disabled"
 	#grand tot
 	grandtot = voucherstot + pcardstot + tbd
 	totfields[6]["state"] = "normal"
 	totfields[6].delete("0", "end")
-	totfields[6].insert("0", (str(float(grandtot)) + ("0" if NumberHasDecimalPlaces(grandtot, 1) else "")))
+	grandtotstr = str(float(grandtot)) + ("0" if NumberHasDecimalPlaces(grandtot, 1) else "")
+	grandtotstr = grandtotstr[:grandtotstr.index(".") + 3]
+	totfields[6].insert("0", grandtotstr)
 	totfields[6]["state"] = "disabled"
+	#till read. not necessary since it's not used in calculations, but since every other field updates dynamically it makes sense for this to too
+	for tillreadfield in tillreadfields:
+		try:
+			if tillreadfield.get() != "":
+				if NumberHasDecimalPlaces(float(tillreadfield.get()), 2) is not True:
+					raise 69
+			tillreadfield["bg"] = correctBG
+		except:
+			tillreadfield["bg"] = incorrectBG
 #END FUNC
 
 
@@ -638,9 +651,9 @@ def registersmain(window, frame):
 		mainmenu.mainmain(window, frame)
 
 	while "yes":
-		# try:
-		UpdateTotals()
-		# except:
-			# "this is why we can't have nice things"
+		try:
+			UpdateTotals()
+		except Exception as e:
+			print("ohno:", e)
 		window.update()
 			
