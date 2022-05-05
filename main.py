@@ -55,7 +55,6 @@ import settingsMenu as settings
 
 class rickrollexception(Exception):
 	def __init__(self):
-		print("the boring version")
 		webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
 """
@@ -78,8 +77,8 @@ def openreplit(name):
 			"Opened Noor's replit")
 
 	elif name == "AL":
-		webbrowser.open("replit.com/@Aleoni"), print(
-			"Opened Antonios's replit")
+		webbrowser.open("https://github.com/AlphaL64"), print(
+			"Opened Antonios's thing")
 
 	elif name == "SW":
 		webbrowser.open("replit.com/@SamWiebe"), print("Opened Sam's replit")
@@ -210,7 +209,7 @@ def CreateHelpMenu():
 	helpb.add_command(
 		label=lm.GetVar("HELP_GUIDE"),
 		command=lambda: webbrowser.open(
-			"https://docs.google.com/document/d/1WCTbV6C1aXx71onCUEbaXEZXDGErHnNW-yQoZFJTr1s/edit?usp=sharing"
+			"https://docs.google.com/document/d/1rMopoiUosTWNzhmI6NOTJdxxQJxMxSCOjZbprwocihM/edit?usp=sharing"
 		))
 	helpb.add_command(label=lm.GetVar("HELP_BUG"),
 					  command=bugreport)

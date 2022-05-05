@@ -1,6 +1,6 @@
 LANGUAGE_NAME = 'Punjabi'		#language name
 TRANSLATOR = 'Bhavnoor Saroya'
-CONTACT_INFO = "replit.com/@noorsaroya"
+CONTACT_INFO = ""				#no credits bc its incomplete
 LANGUAGE_CODE = "pa"
 
 

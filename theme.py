@@ -457,7 +457,17 @@ TestTheme = Theme("Test Theme",
 	}
 )
 
-#KermitTheFrogTheme = Theme()
+KermitTheFrogTheme = Theme(name="Kermit The Frog",
+	font="Courier 10",
+	windowBG="#8beb67",
+	buttonAppearance=Theme.ButtonTheme(bg="#8beb67", fg="#03c11b", bd=1, abg="#03c11b", afg="#8beb67"),
+	entryAppearance=Theme.FieldTheme(bg="#8beb67", fg="#03c11b", abg="#03c11b", afg="#8beb67", dbg="#382", dfg="#212", incorrectBG="#fa7a55"),
+	checkboxAppearance=Theme.CheckboxTheme(bg="#8beb67", fg="#03c11b", abg="#03c11b", afg="#8beb67"),
+	labelAppearance=Theme.LabelTheme(fg="#03c11b"),
+	dropdownAppearance=Theme.DropdownTheme(bg="#8beb67", fg="#03c11b", abg="#03c11b", afg="#8beb67"),
+	windowWidth=1000,
+	windowHeight=600,
+)
 #fa7a55
 
 DarkTheme = Theme("Dark Theme",
@@ -527,9 +537,10 @@ HackerTheme = Theme("Hacker Theme",
 #list containing all themes (NOT the names)
 THEMES = [
 	DefaultTheme,
-#	DumbTheme,
-#	TestTheme,
-#	NoorTheme,
 	DarkTheme,
-	HackerTheme
+	HackerTheme,
+	KermitTheFrogTheme,
+	# DumbTheme,
+	# TestTheme,
+	# NoorTheme,
 ]

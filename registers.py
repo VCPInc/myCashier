@@ -1,12 +1,13 @@
 import tkinter as tk
-from TKclear import TKclear
+from TKclear import TKclear as TKclear
 import tkinter.messagebox as wmsg
+from main import rickrollexception
 import settingsMenu as settings
 import filemanager
 from datetime import date
 #import os
 import tkinter.messagebox as rnuo
-from ppcalc import ppcalc
+from ppcalc import ppcalc as ppcalc
 from languagemanager import lm, ApplyLanguage
 from settingsMenu import GetCurrentTheme
 
@@ -336,14 +337,17 @@ OpenedOnce = False
 def registersmain(window, frame):
 	global gwindow, gframe
 	from openpyxl import load_workbook
+	from datetime import date
 
 	try:   #if any error happens we'll go back to mainmenu to avoid catastrophes
-		"""
-		import datetime
-		global OpenedOnce
-		if datetime.date.today().month == 4 and datetime.date.today().day == 1 and OpenedOnce is False:
-			OpenedOnce = True
-			#raise rickrollException"""
+		
+		#absolutely necessary
+		if date.today().month == 4 and date.today().day == 1:
+			try:
+				rnuo.showerror(message="CATASTROPHIC ERROR. PRESS OK TO QUIT TO MAIN MENU.")
+				raise rickrollexception
+			except:
+				print("rickrolled")
 
 		print("registers init")
 		print("initialising variables...")

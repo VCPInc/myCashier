@@ -128,8 +128,7 @@ def SetToDefault():
 	SaveSetting("deleteTime", 7)
 	SaveSetting("float", 163.00)
 	SaveSetting("unit_temp", "Celsius")
-	#TODO: change Cashier to be capitalised for the actual release. yes i really did say that
-	dirname = os.path.expanduser("~/mycashier/files")
+	dirname = os.path.expanduser("~/myCashier/files")
 	if not os.path.isdir(dirname):
 		os.makedirs(dirname)
 	SaveSetting("savepath", dirname)
