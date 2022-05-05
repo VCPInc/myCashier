@@ -1,6 +1,6 @@
 LANGUAGE_NAME = 'Japanese'		#language name
-TRANSLATOR = 'Hiroki Nariyoshi'
-CONTACT_INFO = ""
+TRANSLATOR = 'Hiroki Nariyoshi (成吉弘輝)'
+CONTACT_INFO = "https://www.youtube.com/watch?v=q6EoRBvdVPQ"
 LANGUAGE_CODE = "jp"
 
 
