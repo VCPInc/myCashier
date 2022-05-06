@@ -275,6 +275,7 @@ def UpdateTotals():
 	#total bank deposit
 	totfields[3]["state"] = "normal"
 	totfields[3].delete("0", "end")
+	# tbd -= 3 * settings.GetSetting("float")
 	tbdstr = str(float(tbd)) + ("0" if NumberHasDecimalPlaces(tbd, 1) else "")
 	tbdstr = tbdstr[:tbdstr.index(".") + 3]
 	totfields[3].insert("0", tbdstr)

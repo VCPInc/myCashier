@@ -226,7 +226,7 @@ def settingsmain(window, frame):
 	selectedTempUnit.set(GetSetting("unit_temp"))
 
 	tk.Label(frame,text="SETTINGS_UNIT_TEMPERATURE").grid(row=16)
-	tempunitSelector = tk.OptionMenu(frame, selectedTempUnit, *["Celsius", "Kelvin"])
+	tempunitSelector = tk.OptionMenu(frame, selectedTempUnit, *["Celsius", "Kelvin", "Réamur"])
 	tempunitSelector.grid(row=17)
 	tempunitSelector.config(width=14)
 

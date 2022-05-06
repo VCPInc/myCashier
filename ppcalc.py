@@ -58,13 +58,13 @@ def ppcalc(register):
 	space=tk.Label(cal, text="  ", bg='#DBFFFB')
 	space.grid(row=0, column=0, rowspan=4)
 
-	add=tk.Button(cal,bd=0,bg='#DBFFFB',command=addbut,text="PP_ADD_BTN",font=("Calibri (Body)",16,'bold'),height=1, width=4)
+	add=tk.Button(cal,bd=0,bg='#DBFFFB',command=addbut,text="PP_ADD_BTN",font=("Calibri (Body)",16,'bold'),height=1, width=8)
 	add.grid(row=2)
 
-	done=tk.Button(cal,bd=0,bg='#DBFFFB',command= lambda:(addbut(), donebut()) ,text="PP_DONE_BTN",font=("Calibri (Body)",16,'bold'), height=1,  width=4)
+	done=tk.Button(cal,bd=0,bg='#DBFFFB',command= lambda:(addbut(), donebut()) ,text="PP_DONE_BTN",font=("Calibri (Body)",16,'bold'), height=1,  width=8)
 	done.grid(row=3)
 
-	cancel=tk.Button(cal,bd=0,bg='#DBFFFB',command=cancelbut,text="PP_EXIT_BTN",font=("Calibri (Body)",16,'bold'), height=1,  width=4)
+	cancel=tk.Button(cal,bd=0,bg='#DBFFFB',command=cancelbut,text="PP_EXIT_BTN",font=("Calibri (Body)",16,'bold'), height=1,  width=8)
 	cancel.grid(row=4)
 
 	print("end of ppcalc definition")

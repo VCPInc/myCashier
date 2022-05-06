@@ -111,10 +111,16 @@ def weather(tempstate="C", city="Nanaimo"):
 	temp = response["main"]['temp']#obtain the current temperature from openweathermap
 	if tempstate=="C":
 		temp-=273.15
+	elif tempstate == "R":
+		temp -= 273.15
+		temp *= 0.8
 		
 	feels_like = response['main']['feels_like']#obtain current "feels like" temperature from openweathermap
 	if tempstate=="C":
 		feels_like-=273.15
+	elif tempstate == "R":
+		feels_like -= 273.15
+		feels_like *= 0.8
 		
 	humidity = response['main']['humidity']#obtain current humidity from openweathermap
 
@@ -124,6 +130,8 @@ def weather(tempstate="C", city="Nanaimo"):
 
 	if tempstate == "C":
 		tempstate = "°C"
+	if tempstate == "R":
+		tempstate = "°Ré"
 
 #here we are returning a dictionary with each value as its own key.
 	return {
