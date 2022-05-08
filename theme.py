@@ -389,7 +389,7 @@ DefaultTheme = Theme("Default Theme",
 	labelAppearance=Theme.LabelTheme(),
 	dropdownAppearance=Theme.DropdownTheme(),
 	windowWidth=1000,
-	windowHeight=600,
+	windowHeight=650,
 	transparency=0,
 	specialWidgets = {
 		"✓" : Theme.LabelTheme(fg="#2dbd3a", font="Courier 60"),
@@ -419,7 +419,7 @@ DumbTheme = Theme("Dumb Theme",
 	labelAppearance=Theme.LabelTheme(),
 	dropdownAppearance=Theme.DropdownTheme(),
 	windowWidth=1000,
-	windowHeight=600,
+	windowHeight=650,
 	transparency=0,
 	specialWidgets = {
 		"✓" : "Courier 60",
@@ -441,7 +441,7 @@ TestTheme = Theme("Test Theme",
 	labelAppearance=Theme.LabelTheme(),
 	dropdownAppearance=Theme.DropdownTheme(),
 	windowWidth=1000,
-	windowHeight=600,
+	windowHeight=650,
 	transparency=0,
 	specialWidgets = 
 	{
@@ -467,7 +467,7 @@ KermitTheFrogTheme = Theme(name="Kermit The Frog",
 	labelAppearance=Theme.LabelTheme(fg="#03c11b"),
 	dropdownAppearance=Theme.DropdownTheme(bg="#8beb67", fg="#03c11b", abg="#03c11b", afg="#8beb67"),
 	windowWidth=1000,
-	windowHeight=600,
+	windowHeight=650,
 )
 #fa7a55
 
@@ -480,7 +480,7 @@ DarkTheme = Theme("Dark Theme",
 	labelAppearance=Theme.LabelTheme(fg="#fff"),
 	dropdownAppearance=Theme.DropdownTheme(bg="#282828", fg="#fff", abg="#383838", afg="#fff"),
 	windowWidth=1000,
-	windowHeight=600,
+	windowHeight=650,
 	specialWidgets = {
 		#"Reset Settings" : Theme.ButtonTheme(bg="#862222", fg="#fff", abg="#863636", afg="#fff", hl="#000000", img=None, reliefMode=ReliefMode.flat, bd=5),
 
@@ -500,7 +500,7 @@ NoorTheme = Theme("Noor Theme",
 	labelAppearance=Theme.LabelTheme(),
 	dropdownAppearance=Theme.DropdownTheme(),
 	windowWidth=1000,
-	windowHeight=600,
+	windowHeight=650,
 	transparency=0,
 	specialWidgets = 
 	{
@@ -525,7 +525,7 @@ HackerTheme = Theme("Hacker Theme",
 	Theme.LabelTheme(fg="#0f0"),
 	Theme.DropdownTheme(bg="#101", fg="#0f0", abg="#101", afg="#0f0"),
 	windowWidth=900,
-	windowHeight=600,
+	windowHeight=650,
 	transparency=0,
 	specialWidgets= {
 		#"!" : Theme.LabelTheme(font="Courier 60",fg="red")#,fg="#"),
