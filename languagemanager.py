@@ -47,9 +47,8 @@ def ApplyLanguage(frame):
 	import tkinter as tk
 	for widget in frame.winfo_children():
 		try:
-			#only these have a text attribute
-			if type(widget) in [tk.Label, tk.Button, tk.OptionMenu, tk.Checkbutton]:
-				widget["text"] = lm.GetVar(widget["text"])
+			#if exception happens they didn't have a text attribute or an invalid var, so skip either way
+			widget["text"] = lm.GetVar(widget["text"])
 		except: pass  #print(widget["text"], "is not a valid var")
 
 lm = langmanager()

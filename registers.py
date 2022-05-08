@@ -650,9 +650,6 @@ def registersmain(window, frame):
 		print(e)
 		TKclear(frame)
 		rnuo.showerror(message=lm.GetVar("REG_CRASH"))
-		#try:
-		#	os.remove(filemanager.GetTodaysFileWithPath())  #the error was most likely caused by this, so remove it
-		#except: pass
 		mainmenu.mainmain(window, frame)
 
 	while "yes":

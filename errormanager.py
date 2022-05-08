@@ -7,5 +7,5 @@ def PrintErrorLog(error : Exception):
 	
 	file = open("errors.log", "a")
 	file.write(tb_str)
-	file.write("\n\n\n\n\n")
+	file.write("\n" * 5)
 	file.close()
