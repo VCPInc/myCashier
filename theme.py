@@ -1,3 +1,4 @@
+#from __future__ import match_statement
 import tkinter as tk
 from enum import Enum
 
@@ -294,16 +295,21 @@ class Theme:
 
 		#get the props given the type. since python is too cool for switch statements, we have to do this monstruosity
 		widgetType = type(widget)
-		match widgetType:
-			case  tk.Entry:
+		if widgetType == tk.Entry:
+		#match widgetType:
+		#	case  tk.Entry:
 				props = self.EntryFieldTheming
-			case tk.Button:
+		elif widgetType == tk.Button:
+		#	case tk.Button:
 				props = self.ButtonTheming
-			case tk.Checkbutton:
+		elif widgetType == tk.Checkbutton:
+			#case tk.Checkbutton:
 				props = self.CheckBoxTheming
-			case tk.OptionMenu:
+		elif widgetType == tk.OptionMenu:
+			#case tk.OptionMenu:
 				props = self.DropdownTheming
-			case tk.Label: #
+		elif widgetType == tk.Label:
+			#case tk.Label: #
 				print(widget["text"], "is label")
 				props = self.LabelTheming
 

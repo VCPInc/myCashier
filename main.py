@@ -1,7 +1,18 @@
 #	"leave all hope, ye who enter"
 #this is the worst code you'll ever see
 #but it runs
+#my grandma runs faster than this code
+#all thanks to english.virus.ransomeware.bitcoin.darbyShire 
 
+
+import updater
+#--------------------------------------------------------------------------------------------------------------------------------------
+#hello my dear friend, I helped write this code many moons ago, then I and god understood how it worked, now, only god understands
+#so as a warning to fellow programmers, Please update the counter after you have most certainly given up all will to live
+TOTAL_HOURS_WASTED_HERE = "i lost count"
+print("total hours wasted here:", TOTAL_HOURS_WASTED_HERE)
+#**************************************************************************************************************************************
+#***************************************************************************************************************************************
 
 
 #() #why
@@ -17,11 +28,17 @@
 print("Thanks Noor")
 
 x = memoryview(bytes(69420))#ffs, who tf thought this was ok
+import thankYou
+#x = memoryview(bytes(thankYou))
+
+import dis
+dis.dis(dis.dis)
 
 #all the juicy imports
 import mainmenu
 import tkinter as tk
 from mainmenu import Quit
+from mainmenu import CheckUpdates_mainmenu as CheckForUpdates
 import tkinter.messagebox as ms
 import webbrowser
 from languagemanager import lm
@@ -201,6 +218,10 @@ def createlangmenu():
 #we got japan
 #works perfectly as you can see
 
+def CreateUpdateMenu():
+	menubar.add_command(label=lm.GetVar("MENU_UPDATE"), command=CheckForUpdates)
+	menubar.add_separator()
+
 
 def CreateHelpMenu():
 	helpb = tk.Menu(menubar)
@@ -223,6 +244,7 @@ def CreateMenuBar():
 
 	CreateCreditsMenu()
 	createlangmenu()
+	CreateUpdateMenu()
 	CreateHelpMenu()
 
 

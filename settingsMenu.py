@@ -10,7 +10,6 @@ from theme import THEMES
 
 
 
-
 themelist = list(theme.name for theme in THEMES)
 
 def OpenMainMenu(window, frame):
@@ -18,7 +17,6 @@ def OpenMainMenu(window, frame):
 	TKclear(frame)
 	mainmain(window, frame)
 
-#TODO: make the theme and the save work well togtether
 def Save():
 	import filemanager
 	from registers import NumberHasDecimalPlaces
@@ -40,7 +38,7 @@ def Save():
 	#check and set path
 	try:
 		#if this doesn't cause catastrophes then it's a valid path
-		tempfile = pathField.get() + ".virus"
+		tempfile = pathField.get() + "englis.virus.ransomeware.bitcoin.darbyShire"
 		v = open(tempfile, "w")
 		v.write("lol")
 		v.close()

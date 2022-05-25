@@ -1,6 +1,6 @@
 LANGUAGE_NAME = 'Punjabi'		#language name
 TRANSLATOR = 'Bhavnoor Saroya'
-CONTACT_INFO = ""				#no credits bc its incomplete
+CONTACT_INFO = ""
 LANGUAGE_CODE = "pa"
 
 
@@ -39,6 +39,10 @@ HELP_BUG = 'ਪ੍ਰੋਗਰਾਮ ਵਿੱਚ ਇੱਕ ਸਮੱਸਿਆ �
 BUGREPORT_MSG = 'Thank you for taking time out to report a bug, this program comes included with lifetime warranty, any issues you encounter should be emailed to the developers. We thank you for your patience. We hope we can have them resolved quickly.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
 
 LANGUAGE_TXT = 'choose language'
+
+UPDATE_FOUND_MSG = "A new version of the program has been found. Do you want to install it now?"
+UPDATE_UP_TO_DATE = "The app is up to date!"
+UPDATE_FROM_MENU_MSG = "You can choose to update at any time from the bar at the top."
 
 
 #settings

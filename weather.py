@@ -74,7 +74,7 @@ weather = get_weather(api_key, city_name, f)
 """
 
 
-#real weather function for final use, now in alpha stage
+#real weather function for final use, now in beta stage
 
 def weather(tempstate="C", city="Nanaimo"):
 	import requests

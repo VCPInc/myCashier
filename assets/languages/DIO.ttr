@@ -36,9 +36,15 @@ OTHER_THANKS = "�O� +�:"
 MENU_HELP = 's�j?�5ߏ�{�g���4�AMa'
 HELP_GUIDE = '�׿�OPK'
 HELP_BUG = 'RU&W;�ի�g'
+MENU_UPDATE = ";�ի�D�?5Us�ڹ�"
+
 BUGREPORT_MSG = '�GaT�d&U&W;�ի�*�?��)�׿�OPK'
 
 LANGUAGE_TXT = 'cסhJ�8�fe'
+
+UPDATE_FOUND_MSG = ":*=p�#�J\s�j?�5ߏ�:"
+UPDATE_UP_TO_DATE = "祈"
+UPDATE_FROM_MENU_MSG = "Y�V�k�:*=p�#�J\s�j?�5ߏ�{�g���4�AMp."
 
 
 #settings

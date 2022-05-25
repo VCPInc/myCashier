@@ -36,9 +36,15 @@ OTHER_THANKS = "特别感谢"
 MENU_HELP = '帮助'
 HELP_GUIDE = '用户指南'
 HELP_BUG = '报错'
+MENU_UPDATE = "Check for updates"
+
 BUGREPORT_MSG = '感谢你花时间给我们报错, 这个程序有着永久的保修装置,任何的错误都可以报给管理人员们. 我们感谢你的耐心等待. 我们会以最快的速度完成这次报错.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
 
 LANGUAGE_TXT = '选择一个语言'
+
+UPDATE_FOUND_MSG = "A new version of the program has been found. Do you want to install it now?"
+UPDATE_UP_TO_DATE = "The app is up to date!"
+UPDATE_FROM_MENU_MSG = "You can choose to update at any time from the bar at the top."
 
 
 #settings

@@ -36,9 +36,15 @@ OTHER_THANKS = "Ringraziamenti"
 MENU_HELP = 'Aiuto'
 HELP_GUIDE = "Guida all'uso (inglese)"
 HELP_BUG = 'Segnala un problema'
+MENU_UPDATE = "Aggiorna l'applicazione"
+
 BUGREPORT_MSG = '''Vi ringraziamo per aver preso del tempo per segnalarci un problema: questo programma ha inclusa una garanzia a vita, e saremo perciò lieti di risolvere errori, problemi, o qualunque altra cosa. Vi ringraziamo per la vostra pazienza e speriamo di riuscire a risolvere il problema velocemente. Se l'applicazione dovesse subire una chiusura inaspettata o un crash di qualunque tipo, non esitate a contattarci:\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'''
 
 LANGUAGE_TXT = 'Scegli la lingua'
+
+UPDATE_FOUND_MSG = "È disponibile una nuova versione del programma, vuoi installarla ora?"
+UPDATE_UP_TO_DATE = "L'applicazione è aggiornata!"
+UPDATE_FROM_MENU_MSG = "Puoi aggiornare manualmente in qualunque momento, usando l'opzione nel menu in alto."
 
 
 #settings

@@ -36,9 +36,15 @@ OTHER_THANKS = "Special Thanks"
 MENU_HELP = 'Help'
 HELP_GUIDE = 'User Guide'
 HELP_BUG = 'Report a bug'
+MENU_UPDATE = "Check for updates"
+
 BUGREPORT_MSG = 'Thank you for taking time out to report a bug, this program comes included with lifetime warranty, any issues you encounter should be emailed to the developers. We thank you for your patience. We hope we can have them resolved quickly.\n\nBhavnoor Saroya, Sam Wiebe, Antonio Guido Leoni \nbsaroya.04@gmail.com, swiebe713@gmail.com, leoniantonio0@gmail.com'
 
 LANGUAGE_TXT = 'Choose Language'
+
+UPDATE_FOUND_MSG = "A new version of the program has been found. Do you want to install it now?"
+UPDATE_UP_TO_DATE = "The application is up to date!"
+UPDATE_FROM_MENU_MSG = "You can choose to update at any time from the bar at the top."
 
 
 #settings

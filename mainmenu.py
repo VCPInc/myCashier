@@ -5,6 +5,7 @@ import os
 import filemanager
 from tkcalendar import Calendar
 from languagemanager import lm, ApplyLanguage
+from updater import CheckForUpdates, DownloadAndInstall
 
 #import * as *
 
@@ -102,6 +103,8 @@ def Weather(window, frame):
 
 	theme.SetPropertiesForWidget(label)
 	theme.SetPropertiesForWidget(image)
+
+	print("end of weather")
 	
 	window.mainloop()
 
@@ -275,8 +278,33 @@ def mainmain(window, frame):
 	settings.ApplyTheme(window, frame)
 	ApplyLanguage(frame)
 
+	CheckUpdates_mainmenu(True)
+
 	#weather has to be done after everythinf becasue yes
 	print("Beginning Weather sequence: ")
 	Weather(window, frame)
 
 	# window.mainloop()
+
+def CheckUpdates_mainmenu(showingAutomatically = False):
+	foundupdate = CheckForUpdates()
+	if foundupdate is not None:
+		response = rnuo.askyesno(
+			message=(
+				lm.GetVar("UPDATE_FOUND_MSG") + "\n\n" +
+				foundupdate["name"] + "\n" +
+				foundupdate["body"]
+			)
+		)
+		if response is True:
+			print("updating (not really)")
+			#TODO: close the main window, open a cool-looking console window by calling the updater, and reopening the newly-installled app
+		else:
+			#we only want to show this reminder if the update is made when the application boots up, otherwise the user already knows this
+			if showingAutomatically is True:
+				rnuo.showinfo(message=lm.GetVar("UPDATE_FROM_MENU_MSG"))
+	else:
+		#we don't want this to show when the app boots up, it's stupid
+		if showingAutomatically is False:
+			rnuo.showinfo(message=lm.GetVar("UPDATE_UP_TO_DATE"))
+	print("end of update")
