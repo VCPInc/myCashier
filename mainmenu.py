@@ -1,3 +1,4 @@
+from time import sleep
 import tkinter as tk
 import tkinter.messagebox as rnuo
 from TKclear import TKclear
@@ -5,7 +6,7 @@ import os
 import filemanager
 from tkcalendar import Calendar
 from languagemanager import lm, ApplyLanguage
-from updater import CheckForUpdates, DownloadAndInstall
+from updater import CheckForUpdates
 
 #import * as *
 
@@ -150,6 +151,8 @@ def Xmark(frame):
 
 # main function of mainmenu. called when we want to open mainmenu
 def mainmain(window, frame):
+	global www
+	www = window
 	#initialise
 	print("main menu init")
 	window.title(lm.GetVar("MAIN_TITLE"))
@@ -298,7 +301,12 @@ def CheckUpdates_mainmenu(showingAutomatically = False):
 		)
 		if response is True:
 			print("updating (not really)")
-			#TODO: close the main window, open a cool-looking console window by calling the updater, and reopening the newly-installled app
+			import requests
+			www.destroy()
+			download_link = eval(str(requests.get(foundupdate["assets_url"]).json()))[0]["browser_download_url"]
+			#TODO: close the app before starting the update, somehow
+			os.system("updater.exe " + download_link)
+			exit()
 		else:
 			#we only want to show this reminder if the update is made when the application boots up, otherwise the user already knows this
 			if showingAutomatically is True:
