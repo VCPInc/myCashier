@@ -98,9 +98,6 @@ def InstallDownloadedFiles():
 			print("\t\t""created", dir)
 	print("\t""moving files...")
 	for file in glob.glob(TEMP_DIR + "**/*", recursive=True):
-		#we can't replace these
-		if file == __BUILT_APP_NAME or file == __VERSION_FILE_NAME:
-			continue
 		#if the current thing is a file move it
 		if os.path.isfile(file):
 			#does the same thing as above
@@ -108,6 +105,11 @@ def InstallDownloadedFiles():
 			tmp = newfile.split("/")
 			tmp.pop(0)
 			newfile = os.getcwd().replace("\\", "/")
+
+			#can't replace this
+			if tmp[-1] == __BUILT_APP_NAME:
+				continue
+
 			for i in tmp:
 				newfile += "/" + i
 			#if there is already a file remove it
