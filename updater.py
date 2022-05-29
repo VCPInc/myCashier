@@ -3,17 +3,18 @@ from requests import get as _getrequest
 from ntpath import basename as _basename
 #TODO: add a recovery mode that does something in case of a catastrophic occurrence while updating, like all files getting corrupted
 
-#we need to know the version of the program. we store it in a file because it's easier
-try:
-	with open(".version") as _f:
-		CURRENT_VERSION = float(_f.readline())
-except:#if there is a problem here there will also be one later when we try to use this value, but at least there we have exception handling
-	pass
-
 #how the downloaded files will be saved
 __FILENAME = "download.zip"
 #how the updater app is called when built. used to check whether to execute the update or not
 __BUILT_APP_NAME = "updater.exe"
+__VERSION_FILE_NAME = ".version"
+
+#we need to know the version of the program. we store it in a file because it's easier
+try:
+	with open(__VERSION_FILE_NAME) as _f:
+		CURRENT_VERSION = float(_f.readline())
+except:#if there is a problem here there will also be one later when we try to use this value, but at least there we have exception handling
+	pass
 
 def CheckForUpdates() -> dict:
 	"""this returns the found release, or None if none is found"""
@@ -52,7 +53,7 @@ def DownloadAndInstall() -> bool:
 		return False
 	try:
 		print("writing version file...")
-		with open(".version", "w") as vfile:
+		with open(__VERSION_FILE_NAME, "w") as vfile:
 			vfile.write(str(update["tag_name"]))
 		print("done!")
 	except:
@@ -97,6 +98,9 @@ def InstallDownloadedFiles():
 			print("\t\t""created", dir)
 	print("\t""moving files...")
 	for file in glob.glob(TEMP_DIR + "**/*", recursive=True):
+		#we can't replace these
+		if file == __BUILT_APP_NAME or file == __VERSION_FILE_NAME:
+			continue
 		#if the current thing is a file move it
 		if os.path.isfile(file):
 			#does the same thing as above
