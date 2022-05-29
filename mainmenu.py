@@ -300,13 +300,11 @@ def CheckUpdates_mainmenu(showingAutomatically = False):
 			)
 		)
 		if response is True:
-			print("updating (not really)")
-			import requests
-			www.destroy()
-			download_link = eval(str(requests.get(foundupdate["assets_url"]).json()))[0]["browser_download_url"]
-			#TODO: close the app before starting the update, somehow
-			os.system("updater.exe " + download_link)
-			exit()
+			print("updating")
+			import sys as sus
+			from subprocess import Popen
+			Popen(["updater.exe"])
+			sus.exit()
 		else:
 			#we only want to show this reminder if the update is made when the application boots up, otherwise the user already knows this
 			if showingAutomatically is True:

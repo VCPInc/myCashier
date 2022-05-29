@@ -1,13 +1,14 @@
-from os import system as _s
 from sys import argv as _args
-from ntpath import basename as _bn
 from requests import get as _getrequest
+from ntpath import basename as _basename
 #TODO: add a recovery mode that does something in case of a catastrophic occurrence while updating, like all files getting corrupted
 
 #we need to know the version of the program. we store it in a file because it's easier
-#TODO: maybe it's a bad idea, find an easier way?
-with open(".version") as _f:
-	CURRENT_VERSION = float(_f.readline())
+try:
+	with open(".version") as _f:
+		CURRENT_VERSION = float(_f.readline())
+except:#if there is a problem here there will also be one later when we try to use this value, but at least there we have exception handling
+	pass
 
 #how the downloaded files will be saved
 __FILENAME = "download.zip"
@@ -25,12 +26,19 @@ def CheckForUpdates() -> dict:
 		return releaseinfo
 	return None
 
-def DownloadAndInstall(link) -> bool:
+def DownloadAndInstall() -> bool:
 	#this way the you get to see the awesome console-based update before it starts
 	print("attempting to update...")
 	import time, random
 	random.seed(time.time())
 	time.sleep(1 + random.random())
+
+	update = CheckForUpdates()
+	if update is None:
+		print("the program is up to date!")
+		return False
+
+	link = update["assets"][0]["browser_download_url"]
 
 	try:
 		DownloadLatest(link)
@@ -39,6 +47,14 @@ def DownloadAndInstall(link) -> bool:
 		return False
 	try:
 		InstallDownloadedFiles()
+	except:
+		print("\n\n\n\n\nthere was a problem while installing, please retry later")
+		return False
+	try:
+		print("writing version file...")
+		with open(".version", "w") as vfile:
+			vfile.write(str(update["tag_name"]))
+		print("done!")
 	except:
 		print("\n\n\n\n\nthere was a problem while installing, please retry later")
 		return False
@@ -103,8 +119,10 @@ def InstallDownloadedFiles():
 	print("done!")
 
 
-if _bn(_args[0]) == __BUILT_APP_NAME:
-	result = DownloadAndInstall(_args[1])
+if _basename(_args[0]) == __BUILT_APP_NAME:
+	result = DownloadAndInstall()
 	input("press enter to continue...")
-	_s("exit")
-	_s("myCashier.exe")
+	import sys as sus
+	from subprocess import Popen
+	Popen(["myCashier.exe"])
+	sus.exit()
