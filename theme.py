@@ -295,21 +295,21 @@ class Theme:
 
 		#get the props given the type. since python is too cool for switch statements, we have to do this monstruosity
 		widgetType = type(widget)
-		if widgetType == tk.Entry:
-		#match widgetType:
-		#	case  tk.Entry:
+		# if widgetType == tk.Entry:
+		match widgetType:
+			case  tk.Entry:
 				props = self.EntryFieldTheming
-		elif widgetType == tk.Button:
-		#	case tk.Button:
+		# elif widgetType == tk.Button:
+			case tk.Button:
 				props = self.ButtonTheming
-		elif widgetType == tk.Checkbutton:
-			#case tk.Checkbutton:
+		# elif widgetType == tk.Checkbutton:
+			case tk.Checkbutton:
 				props = self.CheckBoxTheming
-		elif widgetType == tk.OptionMenu:
-			#case tk.OptionMenu:
+		# elif widgetType == tk.OptionMenu:
+			case tk.OptionMenu:
 				props = self.DropdownTheming
-		elif widgetType == tk.Label:
-			#case tk.Label: #
+		# elif widgetType == tk.Label:
+			case tk.Label: #
 				print(widget["text"], "is label")
 				props = self.LabelTheming
 

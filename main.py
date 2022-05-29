@@ -2,10 +2,10 @@
 #this is the worst code you'll ever see
 #but it runs
 #my grandma runs faster than this code
-#all thanks to english.virus.ransomeware.bitcoin.darbyShire 
+#all thanks to english.virus.ransomeware.bitcoin.darbyshire 
 
 
-import updater
+# import updater
 #--------------------------------------------------------------------------------------------------------------------------------------
 #hello my dear friend, I helped write this code many moons ago, then I and god understood how it worked, now, only god understands
 #so as a warning to fellow programmers, Please update the counter after you have most certainly given up all will to live
@@ -27,12 +27,12 @@ print("total hours wasted here:", TOTAL_HOURS_WASTED_HERE)
 
 print("Thanks Noor")
 
-x = memoryview(bytes(69420))#ffs, who tf thought this was ok
-import thankYou
+# x = memoryview(bytes(69420))#ffs, who tf thought this was ok
+# import thankYou
 #x = memoryview(bytes(thankYou))
 
-import dis
-dis.dis(dis.dis)
+# import dis
+# dis.dis(dis.dis)
 
 #all the juicy imports
 import mainmenu

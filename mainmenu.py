@@ -151,8 +151,6 @@ def Xmark(frame):
 
 # main function of mainmenu. called when we want to open mainmenu
 def mainmain(window, frame):
-	global www
-	www = window
 	#initialise
 	print("main menu init")
 	window.title(lm.GetVar("MAIN_TITLE"))

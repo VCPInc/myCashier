@@ -38,7 +38,7 @@ def Save():
 	#check and set path
 	try:
 		#if this doesn't cause catastrophes then it's a valid path
-		tempfile = pathField.get() + "englis.virus.ransomeware.bitcoin.darbyShire"
+		tempfile = pathField.get() + "englis.virus.ransomeware.bitcoin.darbyshire"
 		v = open(tempfile, "w")
 		v.write("lol")
 		v.close()
@@ -57,8 +57,11 @@ def Save():
 		pathField["disabledbackground"] = theme.EntryFieldTheming.background
 		pathField["state"] = "disabled"
 	finally:
-		if os.path.isfile(tempfile):
-			os.remove(tempfile)
+		try:
+			if os.path.isfile(tempfile):
+				os.remove(tempfile)
+		except NameError:
+			pass
 	
 	#check and set delete time
 	try:
