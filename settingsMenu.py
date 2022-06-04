@@ -38,16 +38,18 @@ def Save():
 	#check and set path
 	try:
 		#if this doesn't cause catastrophes then it's a valid path
-		tempfile = pathField.get() + "englis.virus.ransomeware.bitcoin.darbyshire"
-		v = open(tempfile, "w")
-		v.write("lol")
+		tempfile = pathField.get() + "englis.virus.ransomware.bitcoin.darbyshire"
+		v = open(tempfile, "w", encoding="utf-8")
+		v.write("YOUR COMPUTER HAS BEEN INFECTED BY DarbyshireRansomware™. SEND 100₿ TO THIS ADDRESS TO FIX YOUR COMPUTER\nhttp://bitly.com/98K8eH")
 		v.close()
 	except:
+		print("there has, indeed, been a problem")
 		pathField["state"] = "normal"
 		pathField["disabledbackground"] = theme.EntryFieldTheming.incorrectBg
 		pathField["state"] = "disabled"
 		flag = False
 	else:
+		print("esy")
 		path = pathField.get()
 		if not path[-1] == "/":
 			path += "/"
