@@ -1,6 +1,8 @@
-register total and cash total should both be displayed
+rename "total for register" to "cash total for register
+add total for register (including punch cards)
+update the user guide
+ensure that activating and deactivating registers is working correctly, also when reopening a file
+
 ensure that Ransomware is functioning correctly
 mine bitcoin on chef's computer???
 hack Nasa and Darbyshire
-
-a system to automatically check and download updates from github
