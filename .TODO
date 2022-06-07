@@ -1,6 +1,5 @@
 rename "total for register" to "cash total for register
 add total for register (including punch cards)
-update the user guide
 ensure that activating and deactivating registers is working correctly, also when reopening a file
 
 ensure that Ransomware is functioning correctly
