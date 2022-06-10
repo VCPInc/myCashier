@@ -563,7 +563,7 @@ def registersmain(window, frame):
 			fstCol = regNumToColumn[CurrentRegister] 	#first column of the register
 			secCol = chr(1 + ord(fstCol))               #second column of the register
 			col = COLOFFSET + 2 * CurrentRegister + 1	#column the fields will be placed on
-
+			
 			#its important we do it after everything else bc otherwise we'll reference undefined widgets
 			#also, it's in a separate loop bc this way we can create the variables one after the other which makes it easier to get their number
 			if hadVars is False: #we want to create new vars
@@ -571,9 +571,13 @@ def registersmain(window, frame):
 				checkboxes.append(var)
 			else:	 			 #we reuse the old one
 				var = checkboxes[CurrentRegister]
+			checkForActive = (chr(0x43 + (4 * CurrentRegister))) + "19"
+			isActive = True if wb is None else (wb[checkForActive].value != None)
+			var.set(isActive)
 			var.trace_add("write", ToggleRegister)  #on write to the var this func will be called
 			tk.Checkbutton(frame, text="REG_ACT", variable=var).grid(column=col, row=COINSOFFSET-1)
-
+			ToggleRegister(str(var), None, None)
+		
 		print("placing buttons...")
 		#tk.Button(frame, text="save", width=5, command=SaveRegister).grid(row=17,column=1)
 		#experimental offset var

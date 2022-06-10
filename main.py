@@ -2,14 +2,14 @@
 #this is the worst code you'll ever see
 #but it runs
 #my grandma runs faster than this code
-#all thanks to english.virus.ransomeware.bitcoin.darbyshire 
+#all thanks to english.virus.ransomeware.bitcoin.darbyShire 
 
 
 # import updater
 #--------------------------------------------------------------------------------------------------------------------------------------
 #hello my dear friend, I helped write this code many moons ago, then I and god understood how it worked, now, only god understands
 #so as a warning to fellow programmers, Please update the counter after you have most certainly given up all will to live
-TOTAL_HOURS_WASTED_HERE = "i lost count"
+TOTAL_HOURS_WASTED_HERE = 500
 print("total hours wasted here:", TOTAL_HOURS_WASTED_HERE)
 #**************************************************************************************************************************************
 #***************************************************************************************************************************************
