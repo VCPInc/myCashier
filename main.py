@@ -94,7 +94,7 @@ def openreplit(name):
 			"Opened Noor's replit")
 
 	elif name == "AL":
-		webbrowser.open("https://github.com/Leo_A"), print(
+		webbrowser.open("https://github.com/AlphaL64"), print(
 			"Opened Antonios's thing")
 
 	elif name == "SW":
