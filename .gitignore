@@ -9,4 +9,4 @@ settings.xlsx
 #build things
 myCashier.exe
 updater.exe
-build/
+build/build_pyinstaller.py
