@@ -1,7 +1,7 @@
+from os import system as __cmd
 from sys import argv as _args
 from requests import get as _getrequest
 from ntpath import basename as _basename
-#TODO: add a recovery mode that does something in case of a catastrophic occurrence while updating, like all files getting corrupted
 
 #how the downloaded files will be saved
 __FILENAME = "download.zip"
@@ -124,11 +124,18 @@ def InstallDownloadedFiles():
 	rmtree(TEMP_DIR)
 	print("done!")
 
+#TODO: make it do something in case of a catastrophic occurrence while updating, like all files getting corrupted
+def __RecoveryMode__():
+	pass
+
 
 if _basename(_args[0]) == __BUILT_APP_NAME:
 	result = DownloadAndInstall()
-	input("press enter to continue...")
+	__cmd("pause")
 	import sys as sus
 	from subprocess import Popen
 	Popen(["myCashier.exe"])
 	sus.exit()
+
+if len(_args) > 1 and _args[1] == "err-recovery-mode":
+	__RecoveryMode__()

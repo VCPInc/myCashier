@@ -7,6 +7,8 @@ import filemanager
 from tkcalendar import Calendar
 from languagemanager import lm, ApplyLanguage
 from updater import CheckForUpdates
+import sys as sus
+#TODO: there's a problem with exiting the app before updating
 
 #import * as *
 
@@ -14,19 +16,21 @@ def CloseMainMenu(frame):
 	TKclear(frame)
 
 #function called when pressing the "X" or "Quit" buttons
-def Quit(window):
+def Quit(window: tk.Tk):
 	#ask the user for confirmation
 	#for messageboxes we immediately translate
 	if rnuo.askquestion(title=lm.GetVar("QUIT_TITLE"), message=lm.GetVar("QUIT_MESSAGE")) == "yes":
 		#code to execute upon exit goes here
 		window.destroy()
-		#exit doesn't work because of tkinter.
-		# the below code causes a stack overflow to quit the program
-		import sys as sus
-		sus.setrecursionlimit(10**8)
-		def exit():
-			return exit()
-		exit()
+		# sus.exit()
+		os._exit(0)
+		# #exit doesn't work because of tkinter.
+		# # the below code causes a stack overflow to quit the program
+		# import sys as sus
+		# sus.setrecursionlimit(10**8)
+		# def exit():
+		# 	return exit()
+		# exit()
 
 #clear the window and call the settings menu
 def OpenSettingsMenu(window, frame):
@@ -299,10 +303,10 @@ def CheckUpdates_mainmenu(showingAutomatically = False):
 		)
 		if response is True:
 			print("updating")
-			import sys as sus
 			from subprocess import Popen
 			Popen(["updater.exe"])
-			sus.exit()
+			# sus.exit()
+			os._exit(0)
 		else:
 			#we only want to show this reminder if the update is made when the application boots up, otherwise the user already knows this
 			if showingAutomatically is True:

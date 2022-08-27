@@ -68,7 +68,7 @@ def Save():
 	#check and set delete time
 	try:
 		#could cause problems since we don't store the year
-									 			 #in other words, "raise not nice"
+							   #in other words, "raise not nice"
 		if not 0 < int(autodelset.get()) <= 365: raise not 69  #this may be the best code i've ever written
 		filemanager.SaveSetting("deleteTime", int(autodelset.get()))
 		autodelset["bg"] = theme.EntryFieldTheming.background
@@ -131,7 +131,7 @@ def SetToDefault():
 	SaveSetting("deleteTime", 7)
 	SaveSetting("float", 163.00)
 	SaveSetting("unit_temp", "Celsius")
-	dirname = os.path.expanduser("~/myCashier/files")
+	dirname = os.getcwd().replace("\\", "/") + "/files"
 	if not os.path.isdir(dirname):
 		os.makedirs(dirname)
 	SaveSetting("savepath", dirname)

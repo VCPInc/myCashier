@@ -9,4 +9,6 @@ settings.xlsx
 #build things
 myCashier.exe
 updater.exe
-build/build_pyinstaller.py
+
+#everything that starts with "__" will be ignored
+**/_*

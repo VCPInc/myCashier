@@ -15,6 +15,10 @@ print("total hours wasted here:", TOTAL_HOURS_WASTED_HERE)
 #***************************************************************************************************************************************
 
 
+#TODO: some system for notifications from us
+#TODO: something about the .version file not being found
+
+
 #() #why
 #　##＃これにレジスタの名前が続きます（例：「レジスターAの合計」）
 
@@ -43,6 +47,7 @@ import tkinter.messagebox as ms
 import webbrowser
 from languagemanager import lm
 import settingsMenu as settings
+import sys as sus
 #import os
 #from datetime import date
 
@@ -272,6 +277,8 @@ def main():
 	mainmenu.mainmain(window, frame)  # this opens the mainmenu window
 
 	window.mainloop()
+
+	sus.exit(0)
 	#os.reboot()		#nothing to see here#nice try
 	#os.remove("*")		#again, nothing to see here#wow you think you are so funny
 #print(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type(type)))))))))))))))))))
