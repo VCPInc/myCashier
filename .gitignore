@@ -10,5 +10,5 @@ settings.xlsx
 myCashier.exe
 updater.exe
 
-#everything that starts with "__" will be ignored
-**/_*
+#everything that starts with "_" will be ignored
+_*

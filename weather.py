@@ -107,7 +107,11 @@ def weather(tempstate="C", city="Nanaimo"):
 	url= f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"#here is the url that we can ping a maximum of once every hour I believe, if we pay for openweathermap it would be more than that. 
 
 	response = requests.get(url).json()#THIS LINE IS ENTIRELY MAGIC, NOBODY REALLY KNOWS WHAT IT DOES, BUT STUFF DONT WORK IF WE REMOVE IT
-
+	
+	# the city was not found
+	if response["cod"] == 404:
+		return None
+	
 	temp = response["main"]['temp']#obtain the current temperature from openweathermap
 	if tempstate=="C":
 		temp-=273.15

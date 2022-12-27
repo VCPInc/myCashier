@@ -1,10 +1,10 @@
 from os import system as __cmd
-from sys import argv as _args
-from requests import get as _getrequest
-from ntpath import basename as _basename
+from sys import argv as __args
+from requests import get as __getrequest
+from ntpath import basename as __basename
 
 #how the downloaded files will be saved
-__FILENAME = "download.zip"
+__FILENAME = "update.zip"
 #how the updater app is called when built. used to check whether to execute the update or not
 __BUILT_APP_NAME = "updater.exe"
 __VERSION_FILE_NAME = ".version"
@@ -14,12 +14,12 @@ try:
 	with open(__VERSION_FILE_NAME) as _f:
 		CURRENT_VERSION = float(_f.readline())
 except:#if there is a problem here there will also be one later when we try to use this value, but at least there we have exception handling
-	pass
+	pass	#TODO: do it here
 
 def CheckForUpdates() -> dict:
 	"""this returns the found release, or None if none is found"""
 	#uses the github API to get information about the latest release
-	releaseinfo = eval(str(_getrequest("https://api.github.com/repos/VCPInc/myCashier/releases/latest").json()))
+	releaseinfo = eval(str(__getrequest("https://api.github.com/repos/VCPInc/myCashier/releases/latest").json()))
 	releasenum = float(releaseinfo["tag_name"])
 	#if the current version is lower than the latest we return that there is a new release, else not
 	if CURRENT_VERSION < releasenum:
@@ -66,7 +66,7 @@ def DownloadLatest(link):
 	#the link is a direct download
 	print("downloading from", link, "...")
 	file = open(__FILENAME, "wb")
-	file.write(_getrequest(link).content)#this will get us a zipped archive
+	file.write(__getrequest(link).content)#this will get us a zipped archive
 	file.close()
 	print("succesfully downloaded", __FILENAME, "!")
 
@@ -126,10 +126,20 @@ def InstallDownloadedFiles():
 
 #TODO: make it do something in case of a catastrophic occurrence while updating, like all files getting corrupted
 def __RecoveryMode__():
-	pass
+	print("This window will help you recover your myCashier install.")
+	print("After pressing enter, your browser will open. Scroll down until you see two files, 'release.zip' and 'updater.zip', and click on them to download them. Once you0re done, come back to this window.")
+	
+	__cmd("pause")
+	import webbrowser
+	webbrowser.open("https://github.com/VCPInc/myCashier/releases/latest")
+
+	print("\n\n")
+	print("When you press enter now, your file explorer will open.")
+	__cmd("pause")
 
 
-if _basename(_args[0]) == __BUILT_APP_NAME:
+
+if __basename(__args[0]) == __BUILT_APP_NAME:
 	result = DownloadAndInstall()
 	__cmd("pause")
 	import sys as sus
@@ -137,5 +147,5 @@ if _basename(_args[0]) == __BUILT_APP_NAME:
 	Popen(["myCashier.exe"])
 	sus.exit()
 
-if len(_args) > 1 and _args[1] == "err-recovery-mode":
+if len(__args) > 1 and __args[1] == "err-recovery-mode":
 	__RecoveryMode__()

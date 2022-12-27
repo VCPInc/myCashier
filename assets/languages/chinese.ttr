@@ -1,6 +1,6 @@
 LANGUAGE_NAME = '中文'		#language name
 TRANSLATOR = 'Chak Wang (王泽辉)'
-CONTACT_INFO = ""
+CONTACT_INFO = "replit.com/@ChakWang"
 LANGUAGE_CODE = "zh-CN"
 
 

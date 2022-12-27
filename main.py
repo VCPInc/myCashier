@@ -224,7 +224,7 @@ def createlangmenu():
 #works perfectly as you can see
 
 def CreateUpdateMenu():
-	menubar.add_command(label=lm.GetVar("MENU_UPDATE"), command=CheckForUpdates)
+	menubar.add_command(label=lm.GetVar("MENU_UPDATE"), command=CheckForUpdates)	# showingAutomatically is false by default, so we don't need to pass an argument here
 	menubar.add_separator()
 
 

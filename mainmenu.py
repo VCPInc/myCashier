@@ -1,4 +1,4 @@
-from time import sleep
+from time import sleep, time
 import tkinter as tk
 import tkinter.messagebox as rnuo
 from TKclear import TKclear
@@ -154,9 +154,10 @@ def Xmark(frame):
 	lab.config(font=("Courier", 10))
 
 # main function of mainmenu. called when we want to open mainmenu
-def mainmain(window, frame):
+def mainmain(window: tk.Tk, frame: tk.Frame):
 	#initialise
 	print("main menu init")
+	starttime = time()
 	window.title(lm.GetVar("MAIN_TITLE"))
 	#window.config(bg = 'SkyBlue1')
 
@@ -279,11 +280,19 @@ def mainmain(window, frame):
 		print('do work')
 		Xmark(frame)
 	
+	print("done drawing in", (time() - starttime))
+	print("beginning to translate")
+
+	starttime = time()
+
 	import settingsMenu as settings
 	settings.ApplyTheme(window, frame)
 	ApplyLanguage(frame)
+	window.update()
 
-	CheckUpdates_mainmenu(True)
+	print("translation done in", (time() - starttime))
+
+	CheckUpdates_mainmenu(showingAutomatically=True)
 
 	#weather has to be done after everythinf becasue yes
 	print("Beginning Weather sequence: ")
