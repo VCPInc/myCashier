@@ -87,8 +87,8 @@ def Weather(window, frame):
 
 
 	from PIL import ImageTk, Image
-	#img = ImageTk.PhotoImage(Image.open("assets/icons/" + welist["icon"] + ".png"))
-	img = ImageTk.PhotoImage(Image.open("assets/icons/" + '50d' + ".png"))
+	img = ImageTk.PhotoImage(Image.open("assets/icons/" + welist["icon"] + ".png"))
+	# img = ImageTk.PhotoImage(Image.open("assets/icons/" + '50d' + ".png"))
 	image = tk.Label(frame, image = img, text='')
 	image . grid(row=ROW, column=COLUMN, columnspan=3, rowspan=2, sticky='s')
 

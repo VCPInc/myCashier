@@ -1,6 +1,6 @@
 #basically eval but with no security issues (AFAIK, dont come crying to me later if it still doesnt work)
-from ast import literal_eval as __eval
-from os.path import basename as __basename
+from ast import literal_eval as _eval
+from os.path import basename as _basename
 
 LANGUAGE_PATH = "assets/languages/"
 FILE_EXT = ".ttr"
@@ -27,12 +27,12 @@ class langmanager:
 
 			try:
 				NAME = line[:line.index("=")]
-				VALUE = __eval(line[line.index("=") + 2:])
+				VALUE = _eval(line[line.index("=") + 2:])
 
 				exec(f"self.{NAME}=VALUE")
 			except:
 				if skipBadLines is True:
-					print("ERROR: invalid syntax in language file '" + __basename(lang) + "' on line " + str(ln) + ":\n" + line)
+					print("ERROR: invalid syntax in language file '" + _basename(lang) + "' on line " + str(ln) + ":\n" + line)
 				else:
 					raise
 

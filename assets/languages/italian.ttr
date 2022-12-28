@@ -1,6 +1,6 @@
 LANGUAGE_NAME = 'Italian'		#language name
 TRANSLATOR = 'Antonio Guido Leoni'
-CONTACT_INFO = "https://github.com/AlphaL64"
+CONTACT_INFO = "https://github.com/Street-Philosopher"
 LANGUAGE_CODE = "it"
 
 
@@ -13,10 +13,10 @@ QUIT_BTN = 'Esci'					#title of the button to quit
 INCOMPLETE_MSG = 'non hai ancora aggiornato i registri'	#message shown when there's no file for today
 COMPLETE_MSG = 'per oggi hai finito!'			#message shown when there is a file for today
 QUIT_TITLE = ''						#title of the window opened when quitting
-QUIT_MESSAGE = 'Sei sicuro di voler uscire da questo fantastico programma?'
+QUIT_MESSAGE = 'Sei sicuro di voler uscire dall'applicazione?'
 FILENOTFOUND_TITLE = 'Errore'
 PRINTERROR_TITLE = 'Errore'
-FILENOTFOUND_MESSAGE = 'Nessun file trovato con la data di oggi. compila i registri e riprova'
+FILENOTFOUND_MESSAGE = 'Nessun file trovato per oggi. Compila i registri e riprova'
 PRINTERROR_MESSAGE = "C'è stato un errore nella stampa del file"
 WINDOW_RELOAD_MSG = "Per applicare le modifiche è necessario riavviare l'applicazione. Vuoi continuare? Le modifiche non salvate andranno perse."
 
@@ -26,10 +26,10 @@ NAME_NOOR = 'Bhavnoor Saroya'
 NAME_ANTONIO = 'Antonio Guido Leoni'
 NAME_SAM = 'Sam Wiebe'
 NAME_RICK = 'Riccardo'
-ABOUT_DEVS = 'Gli sviluppatori'
-ABOUT_DEVS_MSG = """Sugli sviluppatori:\nAl momento della stesura questo messaggio, siamo un gruppo di diciassettenni con la passione per l'informatica, e questo è un progetto assegnatoci dal nostro insegnante di programmazione. \n Se doveste trovare un bug, non esitate a farcelo sapere attraverso l'opzione "Segnala un problema" nel menu di aiuto.\nSaluti dal 2021."""
-ABOUT_VCP = 'Su VCP Inc.'
-ABOUT_VCPINC_MSG = """  Il "VCP" in "VCP inc." sta per "Very Cool Programmers", una qualità che proviamo sempre a mantenere. Tutto il nostro lavoro è proprietario e confidenziale, a meno di indicazioni contrarie; pertanto, la distribuzione di questo programma, a meno dell'esplicito permesso degli sviluppatori, non è mai consentito.\nI principi che fanno da pilastro del nostro lavoro sono onestà, chiarezza e spirito: per questo ci teniamo a far sapere che nessun essere vivente è stato (direttamente) danneggiato durante il processo di creazione del programma (escludendo la sanità mentale degli sviluppatori).\n © 2021 VCP inc."""
+ABOUT_DEVS = 'Sviluppatori'
+ABOUT_DEVS_MSG = """Informazioni sugli sviluppatori:\nAl momento della stesura questo messaggio, siamo un gruppo di diciassettenni con la passione per l'informatica, e questo è un progetto assegnatoci dal nostro insegnante di programmazione. \nSe doveste trovare un problema, non esitate a farcelo sapere attraverso l'opzione "Segnala un problema" nel menu di aiuto.\nSaluti dal 2021."""
+ABOUT_VCP = 'VCP Inc.'
+ABOUT_VCPINC_MSG = """  Il "VCP" in "VCP inc." sta per "Very Cool Programmers", una virtù che abbiamo messo al primo posto quando abbiamo fondato questo gruppo. Tutto il nostro lavoro è proprietario e confidenziale, a meno di indicazioni contrarie; pertanto, la distribuzione di questo programma, a meno dell'esplicito permesso degli sviluppatori, non è mai consentita.\nI principi che fanno da pilastro del nostro lavoro sono onestà, chiarezza e spirito: per questo ci teniamo a far sapere che nessun essere vivente è stato (direttamente) danneggiato durante il processo di creazione del programma*.\n © 2021 VCP inc.\n\n\n*la sanità mentale degli sviluppatori non è contata"""
 TRANSLATORS = 'Traduttori'
 OTHER_THANKS = "Ringraziamenti"
 
