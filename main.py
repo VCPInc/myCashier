@@ -16,7 +16,6 @@ print("total hours wasted here:", TOTAL_HOURS_WASTED_HERE)
 
 
 #TODO: some system for notifications from us
-#TODO: something about the .version file not being found
 
 
 #() #why

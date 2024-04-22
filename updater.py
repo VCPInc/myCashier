@@ -2,6 +2,7 @@ from os import system as __cmd
 from sys import argv as __args
 from requests import get as __getrequest
 from ntpath import basename as __basename
+from os.path import isfile as __exists
 
 #how the downloaded files will be saved
 __FILENAME = "update.zip"
@@ -10,11 +11,14 @@ __BUILT_APP_NAME = "updater.exe"
 __VERSION_FILE_NAME = ".version"
 
 #we need to know the version of the program. we store it in a file because it's easier
-try:
-	with open(__VERSION_FILE_NAME) as _f:
-		CURRENT_VERSION = float(_f.readline())
-except:#if there is a problem here there will also be one later when we try to use this value, but at least there we have exception handling
-	pass	#TODO: do it here
+if __exists(__VERSION_FILE_NAME):
+	try:
+		with open(__VERSION_FILE_NAME) as _f:
+			CURRENT_VERSION = float(_f.readline())
+	except:#if there is a problem here there will also be one later when we try to use this value, but at least there we have exception handling
+		pass	#TODO: do it here
+else:
+	CURRENT_VERSION = 0
 
 def CheckForUpdates() -> dict:
 	"""this returns the found release, or None if none is found"""
